@@ -7,36 +7,52 @@ export const resumeData = {
     email: "namanjain300@gmail.com",
     linkedin: "https://www.linkedin.com/in/namanjain300",
     location: "Hyderabad, India",
-    summary: "Flutter developer with 5+ years of experience building scalable, cross-platform mobile and web applications. Expert in Dart, Firebase, and modern state management. Proven track record in optimizing performance, leading teams, and delivering robust solutions."
+    summary: "Experienced Flutter developer with 5+ years of expertise in building scalable, cross-platform mobile and web applications. Proficient in Dart, Firebase, and modern state management patterns. Demonstrated ability to optimize performance, lead development teams, and deliver robust solutions across multiple platforms including Android, iOS, Windows, and web."
   },
-  
+
   skills: {
-    languages: ["Dart", "Java", "Python", "JavaScript"],
+    languages: ["Dart", "Java"],
     frameworks: ["Flutter", "Firebase"],
-    stateManagement: ["Provider", "BLoC", "MobX"],
-    tools: ["Visual Studio Code", "Android Studio", "GitHub", "Cursor", "GitHub Actions"],
-    specialties: ["Cross-platform Development", "Performance Optimization", "Team Leadership", "Scalable Architecture"]
+    stateManagement: ["Provider", "BLoC", "MobX", "GetX"],
+    tools: ["Visual Studio Code", "Android Studio", "GitHub", "Cursor", "GitHub", "Postman"],
+    databases: ["Firebase Firestore", "SQLite"],
+    specialties: ["Cross-platform Development", "Performance Optimization", "Team Leadership", "Scalable Architecture", "Real-time Applications", "API Integration"]
   },
-  
+
   experience: [
     {
       id: "practically",
       company: "Practically",
       role: "Senior Mobile Engineer",
       location: "Hyderabad, India",
-      period: "May 2023 – Present",
-      status: "current",
+      period: "May 2023 – Jul 2025",
+      status: "previous",
       highlights: [
-        "Developed educational collaboration platform for teachers and students across Android, iOS, Windows, and IFP devices",
-        "Implemented real-time session sync, external storage access, and interactive lesson tools",
-        "Added Canvas JSON import/export features for scalable content creation",
-        "Engineered multi-platform compatibility using platform-specific integrations",
-        "Utilized BLoC state management for scalable, maintainable, and testable app architecture",
-        "Implemented advanced navigation and deep linking using auto_route",
-        "Reduced app crash rate by optimizing memory management and background tasks using isolates",
-        "Integrated analytics to monitor feature usage, improving adoption by 20%",
-        "Automated build generation and publishing via GitHub Actions",
-        "Conducted code reviews and mentored junior developers"
+        "Developed educational collaboration platform for Android, iOS, Windows, and IFP devices",
+        "Implemented real-time session sync and external storage access",
+        "Built Canvas JSON import/export features for content creation",
+        "Used BLoC state management and auto_route for navigation",
+        "Optimized memory management using isolates to reduce crashes",
+        "Integrated analytics improving feature adoption by 20%",
+        "Automated builds via GitHub Actions",
+        "Mentored junior developers and conducted code reviews"
+      ]
+    },
+    {
+      id: "freelance",
+      company: "Freelance (Blazon Labs)",
+      role: "Flutter Developer",
+      location: "Remote",
+      period: "Oct 2022 – Mar 2023",
+      status: "previous",
+      highlights: [
+        "Developed a real-time vehicle tracking app for logistics, showing live location, speed, fuel, status, and trip history",
+        "Integrated Google Maps API with marker details, polyline routes, and live tracking updates every 2 seconds",
+        "Built a hierarchical filter system to segment vehicles based on ownership and status using optimized query logic and lazy rendering for performance",
+        "Applied real-time filtering on the map view to visualize only selected vehicle states (e.g., moving, idle), improving operator response efficiency",
+        "Designed a scalable architecture using BLoC, integrating REST APIs and efficient state management to handle frequent live data updates",
+        "Optimized UI responsiveness for both low-end and high-end devices, improving map rendering performance",
+        "Worked closely with the client to refine features based on operational use cases and logistics needs"
       ]
     },
     {
@@ -47,11 +63,11 @@ export const resumeData = {
       period: "Dec 2021 – Aug 2022",
       status: "previous",
       highlights: [
-        "Developed full-stack music streaming app with 50K+ users and 10K+ tracks",
-        "Built Flutter-based medical app enabling appointment booking and doctor consultations",
-        "Led development of university-managed app for students with timetable, announcements, assignments, and attendance tracking",
+        "Built music streaming app with 50K+ users and 10K+ tracks",
+        "Developed medical app for appointment booking",
+        "Created university management app for students",
         "Used clean architecture and Provider for state management",
-        "Collaborated with UI/UX designers to ensure accessibility and responsiveness"
+        "Collaborated with UI/UX designers"
       ]
     },
     {
@@ -62,10 +78,10 @@ export const resumeData = {
       period: "Jun 2021 – Dec 2021",
       status: "previous",
       highlights: [
-        "Built e-commerce B2B/B2C application with online payments, order tracking, and returns",
-        "Enabled push notifications using Firebase Cloud Messaging (FCM)",
-        "Optimized app startup time and reduced load latency with lazy-loaded widgets",
-        "Integrated in-app purchases and subscription model using Razorpay APIs"
+        "Built e-commerce B2B/B2C app with online payments",
+        "Implemented push notifications using FCM",
+        "Optimized app startup time with lazy-loaded widgets",
+        "Integrated in-app purchases using Razorpay"
       ]
     },
     {
@@ -76,80 +92,81 @@ export const resumeData = {
       period: "Jun 2020 – Mar 2021",
       status: "early-career",
       highlights: [
-        "Built productivity app targeting blog/video learners using Flutter, Firebase, and MobX",
-        "Created offline support using local caching and sync services",
-        "Designed UI using Material Design principles, supporting both dark/light themes",
-        "Used Firebase Authentication with OTP and social login integrations",
-        "Published application on the Play Store"
+        "Built productivity app for blog/video learners",
+        "Created offline support using local caching",
+        "Designed UI with Material Design principles",
+        "Used Firebase Authentication with OTP",
+        "Published app on Play Store"
       ]
     }
   ],
-  
+
   projects: [
     {
       id: "educational-platform",
-      name: "Educational Platform",
-      description: "Multi-platform educational collaboration app for teachers and students with real-time sync capabilities",
-      technologies: ["Flutter", "BLoC", "Firebase", "Canvas API"],
+      name: "Educational Collaboration Platform",
+      description: "Multi-platform educational collaboration app for teachers and students with real-time sync capabilities and interactive tools",
+      technologies: ["Flutter", "BLoC", "Firebase", "Canvas API", "Real-time Sync"],
       icon: "graduation-cap",
-      metrics: "Multi-platform",
+      metrics: "Multi-platform (Android, iOS, Windows, IFP)",
       color: "cyan"
     },
     {
       id: "music-streaming",
-      name: "Music Streaming App",
-      description: "Full-stack music streaming application serving 50K+ users with 10K+ tracks and robust playback features",
-      technologies: ["Flutter", "Provider", "Audio APIs"],
+      name: "Music Streaming Application",
+      description: "Full-stack music streaming platform serving 50K+ users with 10K+ tracks, robust playback features, and user management",
+      technologies: ["Flutter", "Provider", "Audio APIs", "Backend Services"],
       icon: "music",
-      metrics: "50K+ Users",
+      metrics: "50K+ Users, 10K+ Tracks",
       color: "purple"
     },
     {
       id: "ecommerce-platform",
       name: "E-commerce Platform",
-      description: "Comprehensive B2B/B2C e-commerce solution with payment gateway integration and order management",
-      technologies: ["Flutter", "Razorpay", "Firebase"],
+      description: "Comprehensive B2B/B2C e-commerce solution with integrated payment gateway, order management, and inventory tracking",
+      technologies: ["Flutter", "Razorpay", "Firebase", "Payment Integration"],
       icon: "shopping-cart",
-      metrics: "B2B/B2C",
+      metrics: "B2B/B2C, Payment Gateway",
       color: "emerald"
     },
     {
       id: "medical-app",
-      name: "Medical App",
-      description: "Healthcare application enabling appointment booking and doctor consultations with secure communication",
-      technologies: ["Flutter", "Healthcare APIs", "Security"],
+      name: "Healthcare Management App",
+      description: "Comprehensive healthcare application enabling appointment booking, doctor consultations, and secure patient communication",
+      technologies: ["Flutter", "Healthcare APIs", "Security", "Real-time Chat"],
       icon: "stethoscope",
-      metrics: "Appointments",
+      metrics: "Appointments, Consultations",
       color: "red"
     },
     {
       id: "university-management",
-      name: "University Management",
-      description: "Comprehensive university management system with timetables, announcements, assignments, and attendance tracking",
-      technologies: ["Flutter", "Provider", "Analytics"],
+      name: "University Management System",
+      description: "Complete university management solution with timetables, announcements, assignments, attendance tracking, and student portal",
+      technologies: ["Flutter", "Provider", "Analytics", "Student Portal"],
       icon: "university",
-      metrics: "Students",
+      metrics: "Student Management",
       color: "indigo"
     },
     {
       id: "productivity-app",
-      name: "Productivity App",
-      description: "Productivity application for blog and video learners with offline support and sync capabilities",
-      technologies: ["Flutter", "MobX", "Offline Sync"],
+      name: "Productivity & Learning App",
+      description: "Productivity application for blog and video learners with offline support, synchronization capabilities, and progress tracking",
+      technologies: ["Flutter", "MobX", "Offline Sync", "Progress Tracking"],
       icon: "tasks",
-      metrics: "Offline Support",
+      metrics: "Offline Support, Sync",
       color: "orange"
     }
   ],
-  
+
   achievements: [
-    "Built apps serving 50K+ users",
-    "Improved feature adoption by 20%",
-    "Reduced app crash rates through optimization",
-    "Led cross-functional teams",
-    "Mentored junior developers"
+    "Successfully built applications serving 50K+ active users",
+    "Improved feature adoption by 20% through analytics-driven development",
+    "Significantly reduced app crash rates through performance optimization",
+    "Led cross-functional development teams and mentored junior developers",
+    "Published multiple applications on app stores with positive user ratings",
+    "Implemented automated CI/CD pipelines for continuous delivery"
   ],
-  
+
   education: [
     {
       degree: "Master's in Computer Application",
