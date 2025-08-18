@@ -62,18 +62,18 @@ const Hero = () => {
             <img 
               src={profileImage} 
               alt="Naman Jain - Senior Flutter Developer"
-              className="w-full h-full rounded-full object-cover border-4 border-cyan-bright shadow-2xl hover:shadow-cyan-bright/50 transition-all duration-300"
+              className="w-full h-full rounded-full object-cover border-4 border-purple-bright shadow-2xl hover:shadow-purple-bright/50 transition-all duration-300"
               data-testid="profile-image"
             />
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-bright to-blue-electric bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-purple-bright to-purple-electric bg-clip-text text-transparent">
             {resumeData.personal.name}
           </h1>
           
           <h2 className="text-xl md:text-2xl text-slate-300 mb-6 font-light">
             Senior Flutter Developer with{" "}
-            <span className="text-cyan-bright font-semibold">
+            <span className="text-purple-bright font-semibold">
               {resumeData.personal.experience}
             </span>{" "}
             of experience
@@ -87,7 +87,7 @@ const Hero = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
           <Button
             onClick={handleDownloadResume}
-            className="bg-gradient-to-r from-cyan-bright to-blue-electric hover:from-blue-electric hover:to-cyan-bright text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover-glow"
+            className="bg-gradient-to-r from-purple-bright to-purple-electric hover:from-purple-electric hover:to-purple-bright text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover-glow"
             data-testid="download-resume-button"
           >
             <Download className="w-4 h-4 mr-2" />

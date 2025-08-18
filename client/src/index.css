@@ -26,35 +26,35 @@
   --ring: hsl(203 89% 53%);
   --radius: 0.75rem;
   
-  /* Custom dark theme colors */
-  --dark-primary: hsl(240 38% 8%);
-  --dark-secondary: hsl(240 21% 15%);
-  --dark-card: hsl(216 38% 25%);
-  --dark-accent: hsl(210 78% 25%);
-  --cyan-bright: hsl(194 100% 50%);
-  --blue-electric: hsl(207 90% 54%);
+  /* Custom dark purple gradient theme colors */
+  --dark-primary: hsl(260 40% 8%);
+  --dark-secondary: hsl(270 35% 12%);
+  --dark-card: hsl(280 30% 18%);
+  --dark-accent: hsl(290 45% 25%);
+  --purple-bright: hsl(285 100% 65%);
+  --purple-electric: hsl(275 85% 55%);
 }
 
 .dark {
-  --background: hsl(240 38% 8%);
+  --background: hsl(260 40% 8%);
   --foreground: hsl(210 40% 98%);
-  --card: hsl(216 38% 25%);
+  --card: hsl(280 30% 18%);
   --card-foreground: hsl(210 40% 98%);
-  --popover: hsl(240 38% 8%);
+  --popover: hsl(260 40% 8%);
   --popover-foreground: hsl(210 40% 98%);
-  --primary: hsl(194 100% 50%);
-  --primary-foreground: hsl(240 38% 8%);
-  --secondary: hsl(240 21% 15%);
+  --primary: hsl(285 100% 65%);
+  --primary-foreground: hsl(260 40% 8%);
+  --secondary: hsl(270 35% 12%);
   --secondary-foreground: hsl(210 40% 98%);
-  --muted: hsl(240 21% 15%);
+  --muted: hsl(270 35% 12%);
   --muted-foreground: hsl(215 20% 65%);
-  --accent: hsl(216 38% 25%);
-  --accent-foreground: hsl(194 100% 50%);
+  --accent: hsl(280 30% 18%);
+  --accent-foreground: hsl(285 100% 65%);
   --destructive: hsl(0 62% 54%);
   --destructive-foreground: hsl(0 0% 100%);
-  --border: hsl(210 78% 25%);
-  --input: hsl(216 38% 25%);
-  --ring: hsl(194 100% 50%);
+  --border: hsl(290 45% 25%);
+  --input: hsl(280 30% 18%);
+  --ring: hsl(285 100% 65%);
 }
 
 html {
@@ -74,7 +74,7 @@ html {
 
 @layer utilities {
   .text-shadow {
-    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    text-shadow: 0 0 10px rgba(198, 74, 255, 0.5);
   }
   
   .hover-glow {
@@ -82,7 +82,7 @@ html {
   }
   
   .hover-glow:hover {
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    box-shadow: 0 0 20px rgba(198, 74, 255, 0.3);
     transform: translateY(-2px);
   }
   
@@ -105,8 +105,8 @@ html {
 }
 
 @keyframes glow {
-  from { box-shadow: 0 0 10px var(--cyan-bright), 0 0 20px var(--cyan-bright), 0 0 30px var(--cyan-bright); }
-  to { box-shadow: 0 0 20px var(--cyan-bright), 0 0 30px var(--cyan-bright), 0 0 40px var(--cyan-bright); }
+  from { box-shadow: 0 0 10px var(--purple-bright), 0 0 20px var(--purple-bright), 0 0 30px var(--purple-bright); }
+  to { box-shadow: 0 0 20px var(--purple-bright), 0 0 30px var(--purple-bright), 0 0 40px var(--purple-bright); }
 }
 
 @keyframes fadeInUp {
