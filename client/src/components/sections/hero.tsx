@@ -16,7 +16,7 @@ const Hero = () => {
     try {
       const response = await apiRequest('GET', '/api/resume/download');
       const data = await response.json();
-      
+
       if (data.success) {
         // In a real implementation, this would trigger an actual download
         toast({
@@ -52,25 +52,25 @@ const Hero = () => {
   ];
 
   return (
-    <section 
-      id="home" 
+    <section
+      id="home"
       className="min-h-screen flex items-center justify-center pt-16 px-4 bg-gradient-to-br from-dark-primary via-dark-secondary to-dark-accent"
     >
       <div className="max-w-4xl mx-auto text-center animate-fadeInUp">
         <div className="mb-8">
-          <div className="w-32 h-32 mx-auto mb-6 animate-float">
-            <img 
-              src={profileImage} 
+          <div className="w-60 h-60 mx-auto mb-6 animate-float">
+            <img
+              src={profileImage}
               alt="Naman Jain - Senior Flutter Developer"
               className="w-full h-full rounded-full object-cover border-4 border-blue-bright shadow-2xl hover:shadow-blue-bright/50 transition-all duration-300"
               data-testid="profile-image"
             />
           </div>
-          
+
           <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-bright to-blue-electric bg-clip-text text-transparent">
             {resumeData.personal.name}
           </h1>
-          
+
           <h2 className="text-xl md:text-2xl text-slate-300 mb-6 font-light">
             Senior Flutter Developer with{" "}
             <span className="text-blue-bright font-semibold">
@@ -78,12 +78,12 @@ const Hero = () => {
             </span>{" "}
             of experience
           </h2>
-          
+
           <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-8">
             {resumeData.personal.summary}
           </p>
         </div>
-        
+
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
           <Button
             onClick={handleDownloadResume}
@@ -93,7 +93,7 @@ const Hero = () => {
             <Download className="w-4 h-4 mr-2" />
             Download Resume
           </Button>
-          
+
           <Button
             variant="outline"
             onClick={() => scrollToSection("contact")}
@@ -103,7 +103,7 @@ const Hero = () => {
             Get In Touch
           </Button>
         </div>
-        
+
         <div className="flex justify-center space-x-6">
           {socialLinks.map((social) => {
             const Icon = social.icon;
