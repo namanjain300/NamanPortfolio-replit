@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naman Jain - Senior Flutter Developer | Mobile App Development Expert</title>
+    <meta name="description" content="Naman Jain - Senior Flutter Developer with 5+ years of experience building scalable cross-platform mobile applications. Expert in Dart, Firebase, and modern state management.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'dark-primary': '#0f0f23',
+                        'dark-secondary': '#1a1a2e',
+                        'dark-card': '#16213e',
+                        'dark-accent': '#0e3460',
+                        'cyan-bright': '#00d4ff',
+                        'blue-electric': '#2196f3',
+                    },
+                    animation: {
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'float': 'float 3s ease-in-out infinite',
+                        'fadeInUp': 'fadeInUp 0.6s ease-out',
+                    },
+                    keyframes: {
+                        glow: {
+                            'from': { 'box-shadow': '0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff' },
+                            'to': { 'box-shadow': '0 0 20px #00d4ff, 0 0 30px #00d4ff, 0 0 40px #00d4ff' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        fadeInUp: {
+                            'from': { opacity: '0', transform: 'translateY(30px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .hover-glow:hover {
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .text-shadow {
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-dark-primary text-slate-200 font-inter">
+
+    <!-- Fixed Header Navigation -->
+    <!-- @COMPONENT: Navigation [fixed header with smooth scroll links] -->
+    <nav class="fixed top-0 w-full bg-dark-secondary/95 backdrop-blur-md border-b border-dark-accent z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="text-xl font-bold text-cyan-bright">
+                    <span data-bind="developer.name">Naman Jain</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-slate-200 hover:text-cyan-bright transition-colors duration-300 font-medium">Home</a>
+                    <a href="#about" class="text-slate-200 hover:text-cyan-bright transition-colors duration-300 font-medium">About</a>
+                    <a href="#experience" class="text-slate-200 hover:text-cyan-bright transition-colors duration-300 font-medium">Experience</a>
+                    <a href="#projects" class="text-slate-200 hover:text-cyan-bright transition-colors duration-300 font-medium">Projects</a>
+                    <a href="#contact" class="text-slate-200 hover:text-cyan-bright transition-colors duration-300 font-medium">Contact</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-slate-200 hover:text-cyan-bright" id="mobile-menu-toggle">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-dark-secondary/95 backdrop-blur-md border-t border-dark-accent" id="mobile-menu">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#home" class="block text-slate-200 hover:text-cyan-bright py-2 font-medium">Home</a>
+                <a href="#about" class="block text-slate-200 hover:text-cyan-bright py-2 font-medium">About</a>
+                <a href="#experience" class="block text-slate-200 hover:text-cyan-bright py-2 font-medium">Experience</a>
+                <a href="#projects" class="block text-slate-200 hover:text-cyan-bright py-2 font-medium">Projects</a>
+                <a href="#contact" class="block text-slate-200 hover:text-cyan-bright py-2 font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Navigation -->
+
+    <!-- Hero Section -->
+    <!-- @COMPONENT: HeroSection [main landing area with CTA] -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-16 px-4 bg-gradient-to-br from-dark-primary via-dark-secondary to-dark-accent">
+        <div class="max-w-4xl mx-auto text-center animate-fadeInUp">
+            <div class="mb-8">
+                <div class="w-32 h-32 bg-gradient-to-r from-cyan-bright to-blue-electric rounded-full mx-auto mb-6 flex items-center justify-center animate-float">
+                    <i class="fas fa-mobile-alt text-4xl text-white"></i>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-bright to-blue-electric bg-clip-text text-transparent">
+                    <span data-bind="developer.name">Naman Jain</span>
+                </h1>
+                <h2 class="text-xl md:text-2xl text-slate-300 mb-6 font-light">
+                    Senior Flutter Developer with <span class="text-cyan-bright font-semibold">5+ years</span> of experience
+                </h2>
+                <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-8">
+                    Building scalable, cross-platform mobile and web applications. Expert in Dart, Firebase, and modern state management with a proven track record of optimizing performance and leading teams.
+                </p>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button class="bg-gradient-to-r from-cyan-bright to-blue-electric hover:from-blue-electric hover:to-cyan-bright text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover-glow">
+                    <i class="fas fa-download mr-2"></i>Download Resume
+                </button>
+                <a href="#contact" class="border border-cyan-bright text-cyan-bright hover:bg-cyan-bright hover:text-dark-primary font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
+                    Get In Touch
+                </a>
+            </div>
+            
+            <div class="mt-12 flex justify-center space-x-6">
+                <a href="https://www.linkedin.com/in/namanjain300" class="text-slate-400 hover:text-cyan-bright transition-colors duration-300 text-2xl">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:namanjain300@gmail.com" class="text-slate-400 hover:text-cyan-bright transition-colors duration-300 text-2xl">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://github.com/namanjain300" class="text-slate-400 hover:text-cyan-bright transition-colors duration-300 text-2xl">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: HeroSection -->
+
+    <!-- About Section -->
+    <!-- @COMPONENT: AboutSection [personal background and skills] -->
+    <section id="about" class="py-20 px-4 bg-dark-secondary">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-shadow">About Me</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Passionate about creating exceptional mobile experiences with cutting-edge technology
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="bg-dark-card border border-dark-accent rounded-xl p-8 hover-glow transition-all duration-300">
+                        <h3 class="text-2xl font-semibold mb-4 text-cyan-bright">Professional Summary</h3>
+                        <p class="text-slate-300 leading-relaxed">
+                            Flutter developer with extensive experience in building scalable, cross-platform mobile and web applications. 
+                            Proven expertise in optimizing performance, implementing modern state management solutions, and leading development teams. 
+                            Passionate about creating exceptional user experiences and driving technical innovation.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-dark-card border border-dark-accent rounded-xl p-8 hover-glow transition-all duration-300">
+                        <h3 class="text-2xl font-semibold mb-4 text-cyan-bright">Key Achievements</h3>
+                        <ul class="space-y-2 text-slate-300">
+                            <li class="flex items-center"><i class="fas fa-chart-line text-emerald-400 mr-3"></i>Built apps serving <strong>50K+ users</strong></li>
+                            <li class="flex items-center"><i class="fas fa-rocket text-emerald-400 mr-3"></i>Improved feature adoption by <strong>20%</strong></li>
+                            <li class="flex items-center"><i class="fas fa-bug text-emerald-400 mr-3"></i>Reduced app crash rates through optimization</li>
+                            <li class="flex items-center"><i class="fas fa-users text-emerald-400 mr-3"></i>Led cross-functional teams</li>
+                            <li class="flex items-center"><i class="fas fa-graduation-cap text-emerald-400 mr-3"></i>Mentored junior developers</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <!-- Technical Skills -->
+                    <div class="bg-dark-card border border-dark-accent rounded-xl p-8 hover-glow transition-all duration-300">
+                        <h3 class="text-2xl font-semibold mb-6 text-cyan-bright">Technical Skills</h3>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="text-lg font-medium mb-3 text-slate-200">Languages & Frameworks</h4>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div class="flex items-center space-x-2">
+                                        <i class="fas fa-code text-blue-electric"></i>
+                                        <span data-bind="skills.dart">Dart</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <i class="fab fa-java text-blue-electric"></i>
+                                        <span data-bind="skills.java">Java</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <i class="fab fa-python text-blue-electric"></i>
+                                        <span data-bind="skills.python">Python</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <i class="fab fa-js-square text-blue-electric"></i>
+                                        <span data-bind="skills.javascript">JavaScript</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <i class="fas fa-mobile text-blue-electric"></i>
+                                        <span data-bind="skills.flutter">Flutter</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <i class="fas fa-fire text-blue-electric"></i>
+                                        <span data-bind="skills.firebase">Firebase</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-lg font-medium mb-3 text-slate-200">State Management</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-dark-accent text-cyan-bright px-3 py-1 rounded-full text-sm">Provider</span>
+                                    <span class="bg-dark-accent text-cyan-bright px-3 py-1 rounded-full text-sm">BLoC</span>
+                                    <span class="bg-dark-accent text-cyan-bright px-3 py-1 rounded-full text-sm">MobX</span>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-lg font-medium mb-3 text-slate-200">Tools & Technologies</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-dark-accent text-cyan-bright px-3 py-1 rounded-full text-sm">VS Code</span>
+                                    <span class="bg-dark-accent text-cyan-bright px-3 py-1 rounded-full text-sm">Android Studio</span>
+                                    <span class="bg-dark-accent text-cyan-bright px-3 py-1 rounded-full text-sm">GitHub</span>
+                                    <span class="bg-dark-accent text-cyan-bright px-3 py-1 rounded-full text-sm">GitHub Actions</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: AboutSection -->
+
+    <!-- Experience Section -->
+    <!-- @COMPONENT: ExperienceSection [career timeline] -->
+    <section id="experience" class="py-20 px-4 bg-dark-primary">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-shadow">Experience</h2>
+                <p class="text-slate-400">My professional journey in mobile development</p>
+            </div>
+            
+            <!-- Experience Timeline -->
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="absolute left-8 md:left-1/2 transform md:-translate-x-px h-full w-0.5 bg-gradient-to-b from-cyan-bright to-blue-electric"></div>
+                
+                <!-- @MAP: experiences.map(experience => ( -->
+                <!-- Experience Item 1 - Practically -->
+                <div class="relative flex items-center mb-12">
+                    <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-cyan-bright rounded-full border-4 border-dark-primary animate-pulse"></div>
+                    <div class="ml-20 md:ml-0 md:w-1/2 md:pr-12">
+                        <div class="bg-dark-card border border-dark-accent rounded-xl p-6 hover-glow transition-all duration-300">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-xs font-medium">Current</span>
+                                <span class="text-slate-400 text-sm" data-bind="experience.period">May 2023 – Present</span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-cyan-bright mb-2" data-bind="experience.role">Senior Mobile Engineer</h3>
+                            <p class="text-slate-300 font-medium mb-3" data-bind="experience.company">Practically • Hyderabad, India</p>
+                            <ul class="text-slate-400 space-y-2 text-sm">
+                                <li class="flex items-start"><i class="fas fa-chevron-right text-cyan-bright mr-2 mt-1"></i>Developed educational collaboration platform for teachers and students across multiple platforms</li>
+                                <li class="flex items-start"><i class="fas fa-chevron-right text-cyan-bright mr-2 mt-1"></i>Implemented real-time session sync and Canvas JSON import/export features</li>
+                                <li class="flex items-start"><i class="fas fa-chevron-right text-cyan-bright mr-2 mt-1"></i>Utilized BLoC state management for scalable architecture</li>
+                                <li class="flex items-start"><i class="fas fa-chevron-right text-cyan-bright mr-2 mt-1"></i>Reduced crash rate and improved adoption by 20%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Experience Item 2 - Spider Web Technologies -->
+                <div class="relative flex items-center mb-12">
+                    <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-electric rounded-full border-4 border-dark-primary"></div>
+                    <div class="ml-20 md:ml-0 md:w-1/2 md:ml-auto md:pl-12">
+                        <div class="bg-dark-card border border-dark-accent rounded-xl p-6 hover-glow transition-all duration-300">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-xs font-medium">Previous</span>
+                                <span class="text-slate-400 text-sm" data-bind="experience.period">Dec 2021 – Aug 2022</span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-cyan-bright mb-2" data-bind="experience.role">Senior Mobile Application Developer</h3>
+                            <p class="text-slate-300 font-medium mb-3" data-bind="experience.company">Spider Web Technologies • Chandigarh, India</p>
+                            <ul class="text-slate-400 space-y-2 text-sm">
+                                <li class="flex items-start"><i class="fas fa-chevron-right text-cyan-bright mr-2 mt-1"></i>Developed music streaming app with 50K+ users and 10K+ tracks</li>
+                                <li class="flex items-start"><i class="fas fa-chevron-right text-cyan-bright mr-2 mt-1"></i>Built Flutter-based medical app for appointments and consultations</li>
+                                <li class="flex items-start"><i class="fas fa-chevron-right text-cyan-bright mr-2 mt-1"></i>Led university management app development</li>
+                                <li class="flex items-start"><i class="fas fa-chevron-right text-cyan-bright mr-2 mt-1"></i>Implemented clean architecture with Provider state management</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Experience Item 3 - A2 Technosoft -->
+                <div class="relative flex items-center mb-12">
+                    <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-electric rounded-full border-4 border-dark-primary"></div>
+                    <div class="ml-20 md:ml-0 md:w-1/2 md:pr-12">
+                        <div class="bg-dark-card border border-dark-accent rounded-xl p-6 hover-glow transition-all duration-300">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-xs font-medium">Previous</span>
+                                <span class="text-slate-400 text-sm" data-bind="experience.period">Jun 2021 – Dec 2021</span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-cyan-bright mb-2" data-bind="experience.role">Senior Mobile Application Developer</h3>
+                            <p class="text-slate-300 font-medium mb-3" data-bind="experience.company">A2 Technosoft • Jaipur, India</p>
+                            <ul class="text-slate-400 space-y-2 text-sm">
+                                <li class="flex items-start"><i class="fas fa-chevron-right text-cyan-bright mr-2 mt-1"></i>Built e-commerce B2B/B2C application with payment integration</li>
+                                <li class="flex items-start"><i class="fas fa-chevron-right text-cyan-bright mr-2 mt-1"></i>Implemented push notifications using Firebase FCM</li>
+                                <li class="flex items-start"><i class="fas fa-chevron-right text-cyan-bright mr-2 mt-1"></i>Optimized app performance with lazy-loaded widgets</li>
+                                <li class="flex items-start"><i class="fas fa-chevron-right text-cyan-bright mr-2 mt-1"></i>Integrated Razorpay APIs for payments and subscriptions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Experience Item 4 - BlueAccel Softwares -->
+                <div class="relative flex items-center">
+                    <div class="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-electric rounded-full border-4 border-dark-primary"></div>
+                    <div class="ml-20 md:ml-0 md:w-1/2 md:ml-auto md:pl-12">
+                        <div class="bg-dark-card border border-dark-accent rounded-xl p-6 hover-glow transition-all duration-300">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full text-xs font-medium">Early Career</span>
+                                <span class="text-slate-400 text-sm" data-bind="experience.period">Jun 2020 – Mar 2021</span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-cyan-bright mb-2" data-bind="experience.role">Flutter Developer</h3>
+                            <p class="text-slate-300 font-medium mb-3" data-bind="experience.company">BlueAccel Softwares • Hyderabad, India</p>
+                            <ul class="text-slate-400 space-y-2 text-sm">
+                                <li class="flex items-start"><i class="fas fa-chevron-right text-cyan-bright mr-2 mt-1"></i>Built productivity app with Firebase and MobX integration</li>
+                                <li class="flex items-start"><i class="fas fa-chevron-right text-cyan-bright mr-2 mt-1"></i>Implemented offline support with local caching</li>
+                                <li class="flex items-start"><i class="fas fa-chevron-right text-cyan-bright mr-2 mt-1"></i>Designed UI using Material Design principles</li>
+                                <li class="flex items-start"><i class="fas fa-chevron-right text-cyan-bright mr-2 mt-1"></i>Published application on Play Store</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ExperienceSection -->
+
+    <!-- Projects Section -->
+    <!-- @COMPONENT: ProjectsSection [showcase of work] -->
+    <section id="projects" class="py-20 px-4 bg-dark-secondary">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-shadow">Featured Projects</h2>
+                <p class="text-slate-400">Some of the applications I've built during my career</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- @MAP: projects.map(project => ( -->
+                <!-- Project 1 - Educational Platform -->
+                <div class="bg-dark-card border border-dark-accent rounded-xl overflow-hidden hover-glow transition-all duration-300 group">
+                    <div class="h-48 bg-gradient-to-br from-cyan-bright/20 to-blue-electric/20 flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-graduation-cap text-6xl text-cyan-bright mb-4 group-hover:animate-bounce"></i>
+                            <h3 class="text-xl font-semibold text-white" data-bind="project.name">Educational Platform</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-400 mb-4">Multi-platform educational collaboration app for teachers and students with real-time sync capabilities.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-dark-accent text-cyan-bright px-2 py-1 rounded text-xs">Flutter</span>
+                            <span class="bg-dark-accent text-cyan-bright px-2 py-1 rounded text-xs">BLoC</span>
+                            <span class="bg-dark-accent text-cyan-bright px-2 py-1 rounded text-xs">Firebase</span>
+                            <span class="bg-dark-accent text-cyan-bright px-2 py-1 rounded text-xs">Canvas API</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center text-emerald-400">
+                                <i class="fas fa-users mr-2"></i>
+                                <span class="text-sm">Multi-platform</span>
+                            </div>
+                            <button class="text-cyan-bright hover:text-white transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 - Music Streaming App -->
+                <div class="bg-dark-card border border-dark-accent rounded-xl overflow-hidden hover-glow transition-all duration-300 group">
+                    <div class="h-48 bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-music text-6xl text-purple-400 mb-4 group-hover:animate-bounce"></i>
+                            <h3 class="text-xl font-semibold text-white" data-bind="project.name">Music Streaming App</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-400 mb-4">Full-stack music streaming application serving 50K+ users with 10K+ tracks and robust playback features.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-dark-accent text-purple-400 px-2 py-1 rounded text-xs">Flutter</span>
+                            <span class="bg-dark-accent text-purple-400 px-2 py-1 rounded text-xs">Provider</span>
+                            <span class="bg-dark-accent text-purple-400 px-2 py-1 rounded text-xs">Audio APIs</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center text-emerald-400">
+                                <i class="fas fa-chart-line mr-2"></i>
+                                <span class="text-sm">50K+ Users</span>
+                            </div>
+                            <button class="text-purple-400 hover:text-white transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 - E-commerce Platform -->
+                <div class="bg-dark-card border border-dark-accent rounded-xl overflow-hidden hover-glow transition-all duration-300 group">
+                    <div class="h-48 bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-shopping-cart text-6xl text-emerald-400 mb-4 group-hover:animate-bounce"></i>
+                            <h3 class="text-xl font-semibold text-white" data-bind="project.name">E-commerce Platform</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-400 mb-4">Comprehensive B2B/B2C e-commerce solution with payment gateway integration and order management.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-dark-accent text-emerald-400 px-2 py-1 rounded text-xs">Flutter</span>
+                            <span class="bg-dark-accent text-emerald-400 px-2 py-1 rounded text-xs">Razorpay</span>
+                            <span class="bg-dark-accent text-emerald-400 px-2 py-1 rounded text-xs">Firebase</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center text-emerald-400">
+                                <i class="fas fa-mobile-alt mr-2"></i>
+                                <span class="text-sm">B2B/B2C</span>
+                            </div>
+                            <button class="text-emerald-400 hover:text-white transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 - Medical App -->
+                <div class="bg-dark-card border border-dark-accent rounded-xl overflow-hidden hover-glow transition-all duration-300 group">
+                    <div class="h-48 bg-gradient-to-br from-red-500/20 to-pink-500/20 flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-stethoscope text-6xl text-red-400 mb-4 group-hover:animate-bounce"></i>
+                            <h3 class="text-xl font-semibold text-white" data-bind="project.name">Medical App</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-400 mb-4">Healthcare application enabling appointment booking and doctor consultations with secure communication.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-dark-accent text-red-400 px-2 py-1 rounded text-xs">Flutter</span>
+                            <span class="bg-dark-accent text-red-400 px-2 py-1 rounded text-xs">Healthcare APIs</span>
+                            <span class="bg-dark-accent text-red-400 px-2 py-1 rounded text-xs">Security</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center text-emerald-400">
+                                <i class="fas fa-calendar-check mr-2"></i>
+                                <span class="text-sm">Appointments</span>
+                            </div>
+                            <button class="text-red-400 hover:text-white transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 - University Management -->
+                <div class="bg-dark-card border border-dark-accent rounded-xl overflow-hidden hover-glow transition-all duration-300 group">
+                    <div class="h-48 bg-gradient-to-br from-indigo-500/20 to-blue-500/20 flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-university text-6xl text-indigo-400 mb-4 group-hover:animate-bounce"></i>
+                            <h3 class="text-xl font-semibold text-white" data-bind="project.name">University Management</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-400 mb-4">Comprehensive university management system with timetables, announcements, assignments, and attendance tracking.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-dark-accent text-indigo-400 px-2 py-1 rounded text-xs">Flutter</span>
+                            <span class="bg-dark-accent text-indigo-400 px-2 py-1 rounded text-xs">Provider</span>
+                            <span class="bg-dark-accent text-indigo-400 px-2 py-1 rounded text-xs">Analytics</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center text-emerald-400">
+                                <i class="fas fa-user-graduate mr-2"></i>
+                                <span class="text-sm">Students</span>
+                            </div>
+                            <button class="text-indigo-400 hover:text-white transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 - Productivity App -->
+                <div class="bg-dark-card border border-dark-accent rounded-xl overflow-hidden hover-glow transition-all duration-300 group">
+                    <div class="h-48 bg-gradient-to-br from-orange-500/20 to-yellow-500/20 flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-tasks text-6xl text-orange-400 mb-4 group-hover:animate-bounce"></i>
+                            <h3 class="text-xl font-semibold text-white" data-bind="project.name">Productivity App</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-400 mb-4">Productivity application for blog and video learners with offline support and sync capabilities.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-dark-accent text-orange-400 px-2 py-1 rounded text-xs">Flutter</span>
+                            <span class="bg-dark-accent text-orange-400 px-2 py-1 rounded text-xs">MobX</span>
+                            <span class="bg-dark-accent text-orange-400 px-2 py-1 rounded text-xs">Offline Sync</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center text-emerald-400">
+                                <i class="fas fa-sync mr-2"></i>
+                                <span class="text-sm">Offline Support</span>
+                            </div>
+                            <button class="text-orange-400 hover:text-white transition-colors">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ProjectsSection -->
+
+    <!-- Contact Section -->
+    <!-- @COMPONENT: ContactSection [contact form and information] -->
+    <section id="contact" class="py-20 px-4 bg-dark-primary">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-shadow">Get In Touch</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Ready to discuss your next mobile app project? Let's connect and explore how I can help bring your ideas to life.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div class="bg-dark-card border border-dark-accent rounded-xl p-8 hover-glow transition-all duration-300">
+                        <h3 class="text-2xl font-semibold mb-6 text-cyan-bright">Let's Connect</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-cyan-bright/20 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-envelope text-cyan-bright"></i>
+                                </div>
+                                <div>
+                                    <p class="text-slate-400 text-sm">Email</p>
+                                    <p class="text-slate-200" data-bind="contact.email">namanjain300@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-cyan-bright/20 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-phone text-cyan-bright"></i>
+                                </div>
+                                <div>
+                                    <p class="text-slate-400 text-sm">Phone</p>
+                                    <p class="text-slate-200" data-bind="contact.phone">+91-7976208349</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-cyan-bright/20 rounded-lg flex items-center justify-center">
+                                    <i class="fab fa-linkedin text-cyan-bright"></i>
+                                </div>
+                                <div>
+                                    <p class="text-slate-400 text-sm">LinkedIn</p>
+                                    <p class="text-slate-200">linkedin.com/in/namanjain300</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-cyan-bright/20 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-map-marker-alt text-cyan-bright"></i>
+                                </div>
+                                <div>
+                                    <p class="text-slate-400 text-sm">Location</p>
+                                    <p class="text-slate-200">Hyderabad, India</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 pt-6 border-t border-dark-accent">
+                            <h4 class="text-lg font-medium mb-4 text-slate-200">Why Work With Me?</h4>
+                            <ul class="space-y-2 text-slate-400">
+                                <li class="flex items-center"><i class="fas fa-check text-emerald-400 mr-3"></i>5+ years of Flutter expertise</li>
+                                <li class="flex items-center"><i class="fas fa-check text-emerald-400 mr-3"></i>Cross-platform development specialist</li>
+                                <li class="flex items-center"><i class="fas fa-check text-emerald-400 mr-3"></i>Performance optimization expert</li>
+                                <li class="flex items-center"><i class="fas fa-check text-emerald-400 mr-3"></i>Team leadership experience</li>
+                                <li class="flex items-center"><i class="fas fa-check text-emerald-400 mr-3"></i>Scalable architecture focus</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-dark-card border border-dark-accent rounded-xl p-8 hover-glow transition-all duration-300">
+                    <form class="space-y-6" data-event="submit:handleContactForm">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-slate-200 mb-2">Your Name</label>
+                            <input type="text" id="name" name="name" required 
+                                   class="w-full px-4 py-3 bg-dark-accent border border-dark-accent rounded-lg text-slate-200 placeholder-slate-400 focus:border-cyan-bright focus:ring-1 focus:ring-cyan-bright transition-colors"
+                                   placeholder="Enter your full name">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-slate-200 mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" required 
+                                   class="w-full px-4 py-3 bg-dark-accent border border-dark-accent rounded-lg text-slate-200 placeholder-slate-400 focus:border-cyan-bright focus:ring-1 focus:ring-cyan-bright transition-colors"
+                                   placeholder="your.email@example.com">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-slate-200 mb-2">Subject</label>
+                            <select id="subject" name="subject" required 
+                                    class="w-full px-4 py-3 bg-dark-accent border border-dark-accent rounded-lg text-slate-200 focus:border-cyan-bright focus:ring-1 focus:ring-cyan-bright transition-colors">
+                                <option value="">Select a subject</option>
+                                <option value="project-inquiry">Project Inquiry</option>
+                                <option value="collaboration">Collaboration</option>
+                                <option value="job-opportunity">Job Opportunity</option>
+                                <option value="consultation">Consultation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-slate-200 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required 
+                                      class="w-full px-4 py-3 bg-dark-accent border border-dark-accent rounded-lg text-slate-200 placeholder-slate-400 focus:border-cyan-bright focus:ring-1 focus:ring-cyan-bright transition-colors resize-none"
+                                      placeholder="Tell me about your project or how I can help you..."></textarea>
+                        </div>
+                        
+                        <button type="submit" data-implementation="Should validate form and send email" 
+                                class="w-full bg-gradient-to-r from-cyan-bright to-blue-electric hover:from-blue-electric hover:to-cyan-bright text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover-glow">
+                            <i class="fas fa-paper-plane mr-2"></i>Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ContactSection -->
+
+    <!-- Footer -->
+    <footer class="bg-dark-secondary border-t border-dark-accent py-8 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-slate-400">© 2024 <span class="text-cyan-bright font-semibold" data-bind="developer.name">Naman Jain</span>. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://www.linkedin.com/in/namanjain300" class="text-slate-400 hover:text-cyan-bright transition-colors duration-300">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="mailto:namanjain300@gmail.com" class="text-slate-400 hover:text-cyan-bright transition-colors duration-300">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                    <a href="https://github.com/namanjain300" class="text-slate-400 hover:text-cyan-bright transition-colors duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- @STATE: mobileMenuOpen:boolean = false -->
+    <script>
+        (function() {
+            // Mobile menu toggle functionality
+            // TODO: Implement mobile menu state management in React
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuToggle && mobileMenu) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                    const icon = mobileMenuToggle.querySelector('i');
+                    if (mobileMenu.classList.contains('hidden')) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    } else {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    }
+                });
+                
+                // Close mobile menu when clicking on links
+                const mobileLinks = mobileMenu.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.add('hidden');
+                        const icon = mobileMenuToggle.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    });
+                });
+            }
+
+            // Smooth scrolling for navigation links
+            // TODO: Implement smooth scrolling in React using refs
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop - 80; // Account for fixed header
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Contact form submission
+            // TODO: Implement form validation and API call in React
+            const contactForm = document.querySelector('form[data-event="submit:handleContactForm"]');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // TODO: Implement business logic, API calls, or state management
+                    alert('Form submission functionality would be implemented in React component');
+                });
+            }
+
+            // Add scroll effects
+            // TODO: Implement scroll effects using React hooks
+            let lastScrollTop = 0;
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const header = document.querySelector('nav');
+                
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Scrolling down
+                    if (header) {
+                        header.style.transform = 'translateY(-100%)';
+                    }
+                } else {
+                    // Scrolling up
+                    if (header) {
+                        header.style.transform = 'translateY(0)';
+                    }
+                }
+                lastScrollTop = scrollTop;
+            });
+
+            // Animate elements on scroll
+            // TODO: Implement intersection observer in React for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            const animateElements = document.querySelectorAll('.hover-glow');
+            animateElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(el);
+            });
+        })();
+    </script>
+</body>
+</html>

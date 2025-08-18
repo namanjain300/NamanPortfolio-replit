@@ -1,0 +1,732 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naman Jain - Senior Flutter Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'primary-bg': '#0F0F23',
+                    'secondary-bg': '#1A1A2E',
+                    'card-bg': '#1E1E3F',
+                    'accent-cyan': '#00D4FF',
+                    'accent-purple': '#7C3AED',
+                    'text-primary': '#F8FAFC',
+                    'text-secondary': '#94A3B8',
+                    'border-subtle': '#334155'
+                },
+                fontFamily: {
+                    'inter': ['Inter', 'sans-serif']
+                },
+                animation: {
+                    'glow': 'glow 2s ease-in-out infinite alternate',
+                    'float': 'float 3s ease-in-out infinite',
+                }
+            }
+        }
+    };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(0, 212, 255, 0.3); }
+            to { box-shadow: 0 0 30px rgba(0, 212, 255, 0.6); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        html { scroll-behavior: smooth; }
+        .gradient-text {
+            background: linear-gradient(45deg, #00D4FF, #7C3AED);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-primary-bg font-inter text-text-primary overflow-x-hidden">
+
+    <!-- @COMPONENT: Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-primary-bg/95 backdrop-blur-sm border-b border-border-subtle">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold gradient-text">
+                    Naman Jain
+                </div>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="#home" class="hover:text-accent-cyan transition-colors duration-300">Home</a></li>
+                    <li><a href="#about" class="hover:text-accent-cyan transition-colors duration-300">About</a></li>
+                    <li><a href="#experience" class="hover:text-accent-cyan transition-colors duration-300">Experience</a></li>
+                    <li><a href="#projects" class="hover:text-accent-cyan transition-colors duration-300">Projects</a></li>
+                    <li><a href="#skills" class="hover:text-accent-cyan transition-colors duration-300">Skills</a></li>
+                    <li><a href="#contact" class="hover:text-accent-cyan transition-colors duration-300">Contact</a></li>
+                </ul>
+                <div class="md:hidden">
+                    <button data-event="click:toggleMobileMenu" class="text-text-primary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- @END_COMPONENT: Header -->
+
+    <!-- @COMPONENT: Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center px-6 pt-20">
+        <div class="container mx-auto text-center">
+            <div class="animate-float">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                    <span class="gradient-text">Flutter Developer</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-text-secondary mb-8 max-w-3xl mx-auto">
+                    with <span class="text-accent-cyan font-semibold">5+ years</span> of experience building scalable, 
+                    cross-platform mobile and web applications
+                </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button data-event="click:downloadResume" class="bg-accent-cyan text-primary-bg px-8 py-3 rounded-lg font-semibold hover:bg-accent-cyan/90 transition-all duration-300 hover:scale-105">
+                    <i class="fas fa-download mr-2"></i>Download Resume
+                </button>
+                <a href="#contact" class="border border-accent-purple text-accent-purple px-8 py-3 rounded-lg font-semibold hover:bg-accent-purple hover:text-white transition-all duration-300">
+                    Get In Touch
+                </a>
+            </div>
+            <div class="mt-12 flex justify-center space-x-6">
+                <a href="https://www.linkedin.com/in/namanjain300" class="text-2xl hover:text-accent-cyan transition-colors duration-300">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:namanjain300@gmail.com" class="text-2xl hover:text-accent-cyan transition-colors duration-300">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="tel:+917976208349" class="text-2xl hover:text-accent-cyan transition-colors duration-300">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Hero Section -->
+
+    <!-- @COMPONENT: About Section -->
+    <section id="about" class="py-20 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <p class="text-lg text-text-secondary leading-relaxed">
+                        Expert in <span class="text-accent-cyan">Dart</span>, <span class="text-accent-cyan">Firebase</span>, 
+                        and modern state management with a proven track record in optimizing performance, leading teams, 
+                        and delivering robust solutions.
+                    </p>
+                    <p class="text-lg text-text-secondary leading-relaxed">
+                        I specialize in building cross-platform applications that reach users across 
+                        <span class="text-accent-purple">Android</span>, <span class="text-accent-purple">iOS</span>, 
+                        <span class="text-accent-purple">Windows</span>, and <span class="text-accent-purple">Web</span> platforms.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mt-8">
+                        <div class="bg-card-bg p-4 rounded-lg border border-border-subtle">
+                            <div class="text-2xl font-bold text-accent-cyan">50K+</div>
+                            <div class="text-text-secondary">App Users</div>
+                        </div>
+                        <div class="bg-card-bg p-4 rounded-lg border border-border-subtle">
+                            <div class="text-2xl font-bold text-accent-cyan">20%</div>
+                            <div class="text-text-secondary">Adoption Improvement</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-card-bg p-8 rounded-xl border border-border-subtle">
+                    <h3 class="text-2xl font-semibold mb-6 text-accent-cyan">Core Expertise</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-mobile-alt text-accent-purple"></i>
+                            <span>Cross-platform Mobile Development</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-code text-accent-purple"></i>
+                            <span>Flutter & Dart Expertise</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-database text-accent-purple"></i>
+                            <span>Firebase & Backend Integration</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-users text-accent-purple"></i>
+                            <span>Team Leadership & Mentoring</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-chart-line text-accent-purple"></i>
+                            <span>Performance Optimization</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: About Section -->
+
+    <!-- @COMPONENT: Experience Section -->
+    <section id="experience" class="py-20 px-6 bg-secondary-bg">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">Experience</h2>
+            
+            <!-- @MAP: experienceData.map(experience => ( -->
+            <div class="space-y-8">
+                <div class="bg-card-bg p-8 rounded-xl border border-border-subtle hover:border-accent-cyan transition-all duration-300">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-accent-cyan">Senior Mobile Engineer</h3>
+                        <span class="text-text-secondary font-medium">May 2023 – Jun 2025</span>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-building text-accent-purple mr-2"></i>
+                        <span class="text-lg font-semibold">Practically</span>
+                        <span class="ml-auto text-text-secondary">Hyderabad, India</span>
+                    </div>
+                    <div class="space-y-3 text-text-secondary">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-accent-cyan mt-1 flex-shrink-0"></i>
+                            <p>Developed educational collaboration platform across Android, iOS, Windows, and IFP devices</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-accent-cyan mt-1 flex-shrink-0"></i>
+                            <p>Implemented real-time session sync and Canvas JSON import/export features</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-accent-cyan mt-1 flex-shrink-0"></i>
+                            <p>Reduced app crash rate through memory optimization and background task management</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-accent-cyan mt-1 flex-shrink-0"></i>
+                            <p>Improved feature adoption by 20% through integrated analytics</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-card-bg p-8 rounded-xl border border-border-subtle hover:border-accent-cyan transition-all duration-300">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-accent-cyan">Senior Mobile Application Developer</h3>
+                        <span class="text-text-secondary font-medium">Dec 2021 – Aug 2022</span>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-building text-accent-purple mr-2"></i>
+                        <span class="text-lg font-semibold">Spider Web Technologies</span>
+                        <span class="ml-auto text-text-secondary">Chandigarh, India</span>
+                    </div>
+                    <div class="space-y-3 text-text-secondary">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-accent-cyan mt-1 flex-shrink-0"></i>
+                            <p>Built music streaming app with 50K+ users and 10K+ tracks</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-accent-cyan mt-1 flex-shrink-0"></i>
+                            <p>Developed Flutter-based medical app for appointment booking and consultations</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-accent-cyan mt-1 flex-shrink-0"></i>
+                            <p>Led university-managed student app development with timetable and attendance features</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-card-bg p-8 rounded-xl border border-border-subtle hover:border-accent-cyan transition-all duration-300">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-accent-cyan">Senior Mobile Application Developer</h3>
+                        <span class="text-text-secondary font-medium">Jun 2021 – Dec 2021</span>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-building text-accent-purple mr-2"></i>
+                        <span class="text-lg font-semibold">A2 Technosoft</span>
+                        <span class="ml-auto text-text-secondary">Jaipur, India</span>
+                    </div>
+                    <div class="space-y-3 text-text-secondary">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-accent-cyan mt-1 flex-shrink-0"></i>
+                            <p>Built e-commerce B2B/B2C application with payments and order tracking</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-accent-cyan mt-1 flex-shrink-0"></i>
+                            <p>Integrated push notifications using Firebase Cloud Messaging</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-accent-cyan mt-1 flex-shrink-0"></i>
+                            <p>Optimized app startup time with lazy-loaded widgets</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-card-bg p-8 rounded-xl border border-border-subtle hover:border-accent-cyan transition-all duration-300">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-accent-cyan">Flutter Developer</h3>
+                        <span class="text-text-secondary font-medium">Jun 2020 – Mar 2021</span>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-building text-accent-purple mr-2"></i>
+                        <span class="text-lg font-semibold">BlueAccel Softwares</span>
+                        <span class="ml-auto text-text-secondary">Hyderabad, India</span>
+                    </div>
+                    <div class="space-y-3 text-text-secondary">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-accent-cyan mt-1 flex-shrink-0"></i>
+                            <p>Built productivity app with Firebase and MobX state management</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-accent-cyan mt-1 flex-shrink-0"></i>
+                            <p>Implemented offline support with local caching and sync services</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-accent-cyan mt-1 flex-shrink-0"></i>
+                            <p>Published application on Play Store with dark/light theme support</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- @END_MAP )) -->
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Experience Section -->
+
+    <!-- @COMPONENT: Projects Section -->
+    <section id="projects" class="py-20 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">Featured Projects</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- @MAP: projects.map(project => ( -->
+                <div class="bg-card-bg p-8 rounded-xl border border-border-subtle hover:border-accent-cyan transition-all duration-300 hover:scale-105">
+                    <div class="flex items-center justify-between mb-4">
+                        <i class="fas fa-mobile-alt text-3xl text-accent-cyan"></i>
+                        <div class="flex space-x-2">
+                            <span class="bg-accent-purple/20 text-accent-purple px-2 py-1 rounded text-sm">Flutter</span>
+                            <span class="bg-accent-cyan/20 text-accent-cyan px-2 py-1 rounded text-sm">Firebase</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Educational Platform</h3>
+                    <p class="text-text-secondary mb-4">Multi-platform collaboration tool for teachers and students with real-time sync and interactive features.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-accent-cyan font-semibold">Cross-Platform</span>
+                        <i class="fas fa-external-link-alt text-accent-purple cursor-pointer hover:text-accent-cyan transition-colors"></i>
+                    </div>
+                </div>
+
+                <div class="bg-card-bg p-8 rounded-xl border border-border-subtle hover:border-accent-cyan transition-all duration-300 hover:scale-105">
+                    <div class="flex items-center justify-between mb-4">
+                        <i class="fas fa-music text-3xl text-accent-cyan"></i>
+                        <div class="flex space-x-2">
+                            <span class="bg-accent-purple/20 text-accent-purple px-2 py-1 rounded text-sm">Flutter</span>
+                            <span class="bg-accent-cyan/20 text-accent-cyan px-2 py-1 rounded text-sm">50K+ Users</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Music Streaming App</h3>
+                    <p class="text-text-secondary mb-4">Full-stack music platform serving 50K+ users with 10K+ tracks and seamless playback experience.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-accent-cyan font-semibold">50K+ Users</span>
+                        <i class="fas fa-external-link-alt text-accent-purple cursor-pointer hover:text-accent-cyan transition-colors"></i>
+                    </div>
+                </div>
+
+                <div class="bg-card-bg p-8 rounded-xl border border-border-subtle hover:border-accent-cyan transition-all duration-300 hover:scale-105">
+                    <div class="flex items-center justify-between mb-4">
+                        <i class="fas fa-user-md text-3xl text-accent-cyan"></i>
+                        <div class="flex space-x-2">
+                            <span class="bg-accent-purple/20 text-accent-purple px-2 py-1 rounded text-sm">Flutter</span>
+                            <span class="bg-accent-cyan/20 text-accent-cyan px-2 py-1 rounded text-sm">Healthcare</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Medical Consultation App</h3>
+                    <p class="text-text-secondary mb-4">Healthcare platform enabling appointment booking and doctor consultations with secure communication.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-accent-cyan font-semibold">Healthcare</span>
+                        <i class="fas fa-external-link-alt text-accent-purple cursor-pointer hover:text-accent-cyan transition-colors"></i>
+                    </div>
+                </div>
+
+                <div class="bg-card-bg p-8 rounded-xl border border-border-subtle hover:border-accent-cyan transition-all duration-300 hover:scale-105">
+                    <div class="flex items-center justify-between mb-4">
+                        <i class="fas fa-shopping-cart text-3xl text-accent-cyan"></i>
+                        <div class="flex space-x-2">
+                            <span class="bg-accent-purple/20 text-accent-purple px-2 py-1 rounded text-sm">Flutter</span>
+                            <span class="bg-accent-cyan/20 text-accent-cyan px-2 py-1 rounded text-sm">E-commerce</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">E-commerce Platform</h3>
+                    <p class="text-text-secondary mb-4">B2B/B2C application with payment integration, order tracking, and subscription models.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-accent-cyan font-semibold">B2B/B2C</span>
+                        <i class="fas fa-external-link-alt text-accent-purple cursor-pointer hover:text-accent-cyan transition-colors"></i>
+                    </div>
+                </div>
+
+                <div class="bg-card-bg p-8 rounded-xl border border-border-subtle hover:border-accent-cyan transition-all duration-300 hover:scale-105">
+                    <div class="flex items-center justify-between mb-4">
+                        <i class="fas fa-graduation-cap text-3xl text-accent-cyan"></i>
+                        <div class="flex space-x-2">
+                            <span class="bg-accent-purple/20 text-accent-purple px-2 py-1 rounded text-sm">Flutter</span>
+                            <span class="bg-accent-cyan/20 text-accent-cyan px-2 py-1 rounded text-sm">Education</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">University Management</h3>
+                    <p class="text-text-secondary mb-4">Student app with timetable, announcements, assignments, and attendance tracking features.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-accent-cyan font-semibold">Education</span>
+                        <i class="fas fa-external-link-alt text-accent-purple cursor-pointer hover:text-accent-cyan transition-colors"></i>
+                    </div>
+                </div>
+
+                <div class="bg-card-bg p-8 rounded-xl border border-border-subtle hover:border-accent-cyan transition-all duration-300 hover:scale-105">
+                    <div class="flex items-center justify-between mb-4">
+                        <i class="fas fa-tasks text-3xl text-accent-cyan"></i>
+                        <div class="flex space-x-2">
+                            <span class="bg-accent-purple/20 text-accent-purple px-2 py-1 rounded text-sm">Flutter</span>
+                            <span class="bg-accent-cyan/20 text-accent-cyan px-2 py-1 rounded text-sm">Productivity</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Productivity App</h3>
+                    <p class="text-text-secondary mb-4">Learning-focused productivity tool with offline support, caching, and dark/light themes.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-accent-cyan font-semibold">Published</span>
+                        <i class="fas fa-external-link-alt text-accent-purple cursor-pointer hover:text-accent-cyan transition-colors"></i>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Projects Section -->
+
+    <!-- @COMPONENT: Skills Section -->
+    <section id="skills" class="py-20 px-6 bg-secondary-bg">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">Technical Skills</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-card-bg p-8 rounded-xl border border-border-subtle">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-code text-4xl text-accent-cyan mb-4"></i>
+                        <h3 class="text-xl font-bold text-accent-cyan">Languages</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span>Dart</span>
+                            <div class="w-24 bg-gray-700 rounded-full h-2">
+                                <div class="bg-accent-cyan h-2 rounded-full w-[95%]"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span>Java</span>
+                            <div class="w-24 bg-gray-700 rounded-full h-2">
+                                <div class="bg-accent-cyan h-2 rounded-full w-[80%]"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span>Python</span>
+                            <div class="w-24 bg-gray-700 rounded-full h-2">
+                                <div class="bg-accent-cyan h-2 rounded-full w-[75%]"></div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span>JavaScript</span>
+                            <div class="w-24 bg-gray-700 rounded-full h-2">
+                                <div class="bg-accent-cyan h-2 rounded-full w-[70%]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-card-bg p-8 rounded-xl border border-border-subtle">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-layer-group text-4xl text-accent-purple mb-4"></i>
+                        <h3 class="text-xl font-bold text-accent-purple">Frameworks</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-accent-cyan/10 p-3 rounded-lg text-center">
+                            <span class="text-accent-cyan font-semibold">Flutter</span>
+                        </div>
+                        <div class="bg-accent-purple/10 p-3 rounded-lg text-center">
+                            <span class="text-accent-purple font-semibold">Firebase</span>
+                        </div>
+                        <div class="bg-border-subtle/50 p-3 rounded-lg text-center">
+                            <span class="text-text-secondary">React Native</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-card-bg p-8 rounded-xl border border-border-subtle">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-cogs text-4xl text-accent-cyan mb-4"></i>
+                        <h3 class="text-xl font-bold text-accent-cyan">State Management</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-accent-cyan/10 p-3 rounded-lg text-center">
+                            <span class="text-accent-cyan font-semibold">BLoC</span>
+                        </div>
+                        <div class="bg-accent-purple/10 p-3 rounded-lg text-center">
+                            <span class="text-accent-purple font-semibold">Provider</span>
+                        </div>
+                        <div class="bg-border-subtle/50 p-3 rounded-lg text-center">
+                            <span class="text-text-secondary">MobX</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-card-bg p-8 rounded-xl border border-border-subtle">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-tools text-4xl text-accent-purple mb-4"></i>
+                        <h3 class="text-xl font-bold text-accent-purple">Tools & DevOps</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-accent-cyan/10 p-3 rounded-lg text-center">
+                            <span class="text-accent-cyan font-semibold">GitHub Actions</span>
+                        </div>
+                        <div class="bg-accent-purple/10 p-3 rounded-lg text-center">
+                            <span class="text-accent-purple font-semibold">Android Studio</span>
+                        </div>
+                        <div class="bg-border-subtle/50 p-3 rounded-lg text-center">
+                            <span class="text-text-secondary">VS Code</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 bg-card-bg p-8 rounded-xl border border-border-subtle">
+                <h3 class="text-2xl font-bold text-center mb-8 gradient-text">Platform Expertise</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <i class="fab fa-android text-4xl text-accent-cyan mb-3"></i>
+                        <div class="font-semibold">Android</div>
+                    </div>
+                    <div class="text-center">
+                        <i class="fab fa-apple text-4xl text-accent-cyan mb-3"></i>
+                        <div class="font-semibold">iOS</div>
+                    </div>
+                    <div class="text-center">
+                        <i class="fab fa-windows text-4xl text-accent-cyan mb-3"></i>
+                        <div class="font-semibold">Windows</div>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-globe text-4xl text-accent-cyan mb-3"></i>
+                        <div class="font-semibold">Web</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Skills Section -->
+
+    <!-- @COMPONENT: Contact Section -->
+    <section id="contact" class="py-20 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text">Get In Touch</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-accent-cyan">Let's Connect</h3>
+                        <p class="text-text-secondary text-lg leading-relaxed">
+                            Ready to build something amazing together? I'm always interested in discussing 
+                            new opportunities, innovative projects, and collaborations in mobile development.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-accent-cyan/10 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-envelope text-accent-cyan"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">Email</div>
+                                <div class="text-text-secondary" data-bind="contact.email">namanjain300@gmail.com</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-accent-purple/10 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-phone text-accent-purple"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">Phone</div>
+                                <div class="text-text-secondary" data-bind="contact.phone">+91-7976208349</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-accent-cyan/10 rounded-lg flex items-center justify-center">
+                                <i class="fab fa-linkedin text-accent-cyan"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">LinkedIn</div>
+                                <div class="text-text-secondary">linkedin.com/in/namanjain300</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-card-bg p-8 rounded-xl border border-border-subtle">
+                    <form data-event="submit:handleContactForm" class="space-y-6">
+                        <!-- @STATE: formData:object = {} -->
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Name</label>
+                            <input 
+                                type="text" 
+                                data-bind="formData.name"
+                                class="w-full px-4 py-3 bg-primary-bg border border-border-subtle rounded-lg focus:border-accent-cyan focus:outline-none transition-colors"
+                                placeholder="Your Name"
+                                required
+                            />
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Email</label>
+                            <input 
+                                type="email" 
+                                data-bind="formData.email"
+                                class="w-full px-4 py-3 bg-primary-bg border border-border-subtle rounded-lg focus:border-accent-cyan focus:outline-none transition-colors"
+                                placeholder="your.email@example.com"
+                                required
+                            />
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Subject</label>
+                            <input 
+                                type="text" 
+                                data-bind="formData.subject"
+                                class="w-full px-4 py-3 bg-primary-bg border border-border-subtle rounded-lg focus:border-accent-cyan focus:outline-none transition-colors"
+                                placeholder="Project Discussion"
+                                required
+                            />
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Message</label>
+                            <textarea 
+                                data-bind="formData.message"
+                                rows="5"
+                                class="w-full px-4 py-3 bg-primary-bg border border-border-subtle rounded-lg focus:border-accent-cyan focus:outline-none transition-colors resize-none"
+                                placeholder="Tell me about your project or opportunity..."
+                                required
+                            ></textarea>
+                        </div>
+                        
+                        <button 
+                            type="submit" 
+                            class="w-full bg-gradient-to-r from-accent-cyan to-accent-purple text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                        >
+                            <i class="fas fa-paper-plane mr-2"></i>Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Contact Section -->
+
+    <!-- @COMPONENT: Footer -->
+    <footer class="bg-primary-bg border-t border-border-subtle py-12 px-6">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="text-center md:text-left mb-6 md:mb-0">
+                    <div class="text-2xl font-bold gradient-text mb-2">Naman Jain</div>
+                    <div class="text-text-secondary">Senior Flutter Developer</div>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://www.linkedin.com/in/namanjain300" class="text-2xl hover:text-accent-cyan transition-colors duration-300">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:namanjain300@gmail.com" class="text-2xl hover:text-accent-cyan transition-colors duration-300">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+917976208349" class="text-2xl hover:text-accent-cyan transition-colors duration-300">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    <button data-event="click:downloadResume" class="text-2xl hover:text-accent-cyan transition-colors duration-300">
+                        <i class="fas fa-download"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="text-center mt-8 pt-8 border-t border-border-subtle text-text-secondary">
+                <p>&copy; 2024 Naman Jain. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        // TODO: Implement business logic, API calls, or state management
+        
+        // Smooth scrolling for navigation links
+        (function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Resume download functionality
+            function downloadResume() {
+                // TODO: Implement actual resume download logic
+                // For now, create a mock PDF download
+                const link = document.createElement('a');
+                link.href = 'data:application/pdf;base64,'; // TODO: Add actual PDF data
+                link.download = 'Naman_Jain_Resume.pdf';
+                link.click();
+            }
+
+            // Contact form handling
+            function handleContactForm(event) {
+                event.preventDefault();
+                // TODO: Implement form submission logic, validation, and API integration
+                const formData = new FormData(event.target);
+                console.log('Form submitted:', Object.fromEntries(formData));
+                
+                // Mock success message
+                alert('Thank you for your message! I\'ll get back to you soon.');
+                event.target.reset();
+            }
+
+            // Mobile menu toggle
+            function toggleMobileMenu() {
+                // TODO: Implement mobile menu toggle functionality
+                console.log('Mobile menu toggle clicked');
+            }
+
+            // Add scroll effect to header
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.classList.add('bg-primary-bg');
+                    header.classList.remove('bg-primary-bg/95');
+                } else {
+                    header.classList.add('bg-primary-bg/95');
+                    header.classList.remove('bg-primary-bg');
+                }
+            });
+
+            // Add event listeners
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('[data-event*="downloadResume"]')) {
+                    downloadResume();
+                }
+                if (e.target.closest('[data-event*="toggleMobileMenu"]')) {
+                    toggleMobileMenu();
+                }
+            });
+
+            document.addEventListener('submit', function(e) {
+                if (e.target.closest('[data-event*="handleContactForm"]')) {
+                    handleContactForm(e);
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

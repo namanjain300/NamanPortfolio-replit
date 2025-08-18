@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naman Jain - Flutter Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@heroicons/react@2.0.18/24/outline/index.js" type="module"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#F0F9FF',
+                            500: '#00D9FF',
+                            600: '#0EA5E9',
+                            900: '#0C4A6E'
+                        },
+                        purple: {
+                            500: '#7C3AED',
+                            600: '#6D28D9'
+                        },
+                        emerald: {
+                            500: '#10B981',
+                            600: '#059669'
+                        },
+                        dark: {
+                            100: '#F0F6FC',
+                            200: '#C9D1D9',
+                            300: '#8B949E',
+                            700: '#30363D',
+                            800: '#21262D',
+                            900: '#0D1117'
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'glow': 'glow 2s ease-in-out infinite alternate'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(0, 217, 255, 0.3); }
+            to { box-shadow: 0 0 30px rgba(0, 217, 255, 0.6); }
+        }
+        html { scroll-behavior: smooth; }
+        .glass-card {
+            background: rgba(33, 38, 45, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(139, 148, 158, 0.1);
+        }
+        .glow-on-hover:hover {
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.4);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-dark-100 font-sans">
+
+    <!-- Fixed Navigation Header -->
+    <!-- @COMPONENT: NavigationHeader [sticky navigation with smooth scroll links] -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-900/95 backdrop-blur-md border-b border-dark-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-bold text-primary-500">
+                    Naman Jain
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-dark-200 hover:text-primary-500 transition-colors duration-300 font-medium">Home</a>
+                    <a href="#about" class="text-dark-200 hover:text-primary-500 transition-colors duration-300 font-medium">About</a>
+                    <a href="#experience" class="text-dark-200 hover:text-primary-500 transition-colors duration-300 font-medium">Experience</a>
+                    <a href="#projects" class="text-dark-200 hover:text-primary-500 transition-colors duration-300 font-medium">Projects</a>
+                    <a href="#skills" class="text-dark-200 hover:text-primary-500 transition-colors duration-300 font-medium">Skills</a>
+                    <a href="#contact" class="text-dark-200 hover:text-primary-500 transition-colors duration-300 font-medium">Contact</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button class="text-dark-200 hover:text-primary-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: NavigationHeader -->
+
+    <!-- Hero Section -->
+    <!-- @COMPONENT: HeroSection [main introduction with CTA] -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 pb-16 px-4">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div class="animate-slide-up">
+                <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+                    <span class="text-dark-100">Flutter</span>
+                    <span class="text-primary-500">Developer</span>
+                    <br>
+                    <span class="text-dark-200 text-3xl lg:text-4xl font-medium">with 5+ years experience</span>
+                </h1>
+                <p class="text-xl text-dark-300 mb-8 leading-relaxed">
+                    Expert in building scalable, cross-platform mobile and web applications. 
+                    Proven track record in optimizing performance, leading teams, and delivering robust solutions.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <button data-event="click:downloadResume" class="bg-gradient-to-r from-primary-500 to-purple-500 text-white px-8 py-4 rounded-lg font-semibold hover:from-primary-600 hover:to-purple-600 transition-all duration-300 glow-on-hover">
+                        Download Resume
+                    </button>
+                    <a href="#contact" class="border border-primary-500 text-primary-500 px-8 py-4 rounded-lg font-semibold hover:bg-primary-500 hover:text-white transition-all duration-300">
+                        Get In Touch
+                    </a>
+                </div>
+                <div class="flex items-center gap-6 mt-8">
+                    <a href="https://www.linkedin.com/in/namanjain300" target="_blank" class="text-dark-300 hover:text-primary-500 transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <span class="text-dark-300">|</span>
+                    <span class="text-dark-300">+91-7976208349</span>
+                    <span class="text-dark-300">|</span>
+                    <span class="text-dark-300">namanjain300@gmail.com</span>
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <!-- Professional tech workspace setup showing Flutter development -->
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800" 
+                     alt="Professional Flutter development workspace with multiple monitors" 
+                     class="rounded-2xl shadow-2xl w-full max-w-md glow-on-hover">
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: HeroSection -->
+
+    <!-- About Section -->
+    <!-- @COMPONENT: AboutSection [skills and technical expertise overview] -->
+    <section id="about" class="py-20 px-4 bg-dark-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">About <span class="text-primary-500">Me</span></h2>
+                <p class="text-xl text-dark-300 max-w-3xl mx-auto">
+                    Flutter developer with 5+ years of experience building scalable, cross-platform mobile and web applications. 
+                    Expert in Dart, Firebase, and modern state management.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <!-- Modern mobile app development showcase -->
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                         alt="Modern mobile app development showcase with various device screens" 
+                         class="rounded-xl shadow-lg w-full">
+                </div>
+                <div class="space-y-6">
+                    <div class="glass-card p-6 rounded-xl glow-on-hover">
+                        <h3 class="text-2xl font-semibold mb-3 text-primary-500">Technical Excellence</h3>
+                        <p class="text-dark-200 leading-relaxed">
+                            Specialized in Flutter development with expertise in Dart, Firebase, and modern state management patterns. 
+                            Proven ability to build applications that scale to 50K+ users while maintaining optimal performance.
+                        </p>
+                    </div>
+                    
+                    <div class="glass-card p-6 rounded-xl glow-on-hover">
+                        <h3 class="text-2xl font-semibold mb-3 text-emerald-500">Leadership & Mentoring</h3>
+                        <p class="text-dark-200 leading-relaxed">
+                            Experienced in conducting code reviews, mentoring junior developers, and leading cross-functional teams. 
+                            Collaborated with Product and QA teams to deploy stable releases bi-weekly.
+                        </p>
+                    </div>
+                    
+                    <div class="glass-card p-6 rounded-xl glow-on-hover">
+                        <h3 class="text-2xl font-semibold mb-3 text-purple-500">Performance Optimization</h3>
+                        <p class="text-dark-200 leading-relaxed">
+                            Reduced app crash rates through memory management optimization and implemented analytics 
+                            that improved feature adoption by 20%. Expert in background tasks using isolates.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: AboutSection -->
+
+    <!-- Experience Timeline -->
+    <!-- @COMPONENT: ExperienceSection [career progression timeline] -->
+    <section id="experience" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Work <span class="text-primary-500">Experience</span></h2>
+                <p class="text-xl text-dark-300">My professional journey in mobile development</p>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="absolute left-4 md:left-1/2 transform md:-translate-x-0.5 w-0.5 h-full bg-gradient-to-b from-primary-500 to-purple-500"></div>
+                
+                <!-- @MAP: experiences.map(experience => ( -->
+                <!-- Experience 1: Practically -->
+                <div class="relative flex flex-col md:flex-row md:justify-between items-start md:items-center mb-16">
+                    <div class="flex items-center">
+                        <div class="w-4 h-4 bg-primary-500 rounded-full absolute left-2 md:left-1/2 transform md:-translate-x-2 z-10"></div>
+                        <div class="ml-12 md:ml-0 md:w-5/12 md:text-right md:pr-8">
+                            <div class="glass-card p-6 rounded-xl glow-on-hover">
+                                <h3 class="text-2xl font-semibold text-primary-500 mb-2">Senior Mobile Engineer</h3>
+                                <h4 class="text-lg font-medium text-dark-200 mb-2">Practically</h4>
+                                <p class="text-dark-300 text-sm mb-4">May 2023 – Jun 2025 | Hyderabad, India</p>
+                                <ul class="text-dark-200 space-y-2 text-sm leading-relaxed">
+                                    <li>• Developed educational collaboration platform for Android, iOS, Windows, and IFP devices</li>
+                                    <li>• Implemented real-time session sync and Canvas JSON import/export features</li>
+                                    <li>• Reduced app crash rate through optimized memory management using isolates</li>
+                                    <li>• Improved feature adoption by 20% through integrated analytics</li>
+                                    <li>• Mentored junior developers and conducted code reviews</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden md:block w-5/12 pl-8">
+                        <!-- Flutter development workspace environment -->
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" 
+                             alt="Flutter development workspace with code editor and mobile devices" 
+                             class="rounded-lg shadow-lg w-full">
+                    </div>
+                </div>
+
+                <!-- Experience 2: Spider Web Technologies -->
+                <div class="relative flex flex-col md:flex-row md:justify-between items-start md:items-center mb-16">
+                    <div class="hidden md:block w-5/12 pr-8">
+                        <!-- Mobile app interfaces showcase -->
+                        <img src="https://images.unsplash.com/photo-1559526324-c1f275fbfa32?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" 
+                             alt="Multiple mobile app interfaces displayed on various devices" 
+                             class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-4 h-4 bg-emerald-500 rounded-full absolute left-2 md:left-1/2 transform md:-translate-x-2 z-10"></div>
+                        <div class="ml-12 md:ml-0 md:w-5/12 md:pl-8">
+                            <div class="glass-card p-6 rounded-xl glow-on-hover">
+                                <h3 class="text-2xl font-semibold text-emerald-500 mb-2">Senior Mobile Application Developer</h3>
+                                <h4 class="text-lg font-medium text-dark-200 mb-2">Spider Web Technologies</h4>
+                                <p class="text-dark-300 text-sm mb-4">Dec 2021 – Aug 2022 | Chandigarh, India</p>
+                                <ul class="text-dark-200 space-y-2 text-sm leading-relaxed">
+                                    <li>• Developed music streaming app with 50K+ users and 10K+ tracks</li>
+                                    <li>• Built Flutter-based medical app for appointment booking and consultations</li>
+                                    <li>• Led university-managed student app development with timetable and tracking features</li>
+                                    <li>• Implemented clean architecture and Provider for maintainable code</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 3: A2 Technosoft -->
+                <div class="relative flex flex-col md:flex-row md:justify-between items-start md:items-center mb-16">
+                    <div class="flex items-center">
+                        <div class="w-4 h-4 bg-purple-500 rounded-full absolute left-2 md:left-1/2 transform md:-translate-x-2 z-10"></div>
+                        <div class="ml-12 md:ml-0 md:w-5/12 md:text-right md:pr-8">
+                            <div class="glass-card p-6 rounded-xl glow-on-hover">
+                                <h3 class="text-2xl font-semibold text-purple-500 mb-2">Senior Mobile Application Developer</h3>
+                                <h4 class="text-lg font-medium text-dark-200 mb-2">A2 Technosoft</h4>
+                                <p class="text-dark-300 text-sm mb-4">Jun 2021 – Dec 2021 | Jaipur, India</p>
+                                <ul class="text-dark-200 space-y-2 text-sm leading-relaxed">
+                                    <li>• Built e-commerce B2B/B2C app with payments and order tracking</li>
+                                    <li>• Implemented push notifications using Firebase Cloud Messaging</li>
+                                    <li>• Optimized app startup time with lazy-loaded widgets</li>
+                                    <li>• Integrated in-app purchases and Razorpay payment APIs</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden md:block w-5/12 pl-8">
+                        <!-- E-commerce mobile app development -->
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" 
+                             alt="E-commerce mobile app development with shopping cart interfaces" 
+                             class="rounded-lg shadow-lg w-full">
+                    </div>
+                </div>
+
+                <!-- Experience 4: BlueAccel Softwares -->
+                <div class="relative flex flex-col md:flex-row md:justify-between items-start md:items-center">
+                    <div class="hidden md:block w-5/12 pr-8">
+                        <!-- Mobile app development tools and environment -->
+                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" 
+                             alt="Mobile app development tools and coding environment setup" 
+                             class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-4 h-4 bg-primary-500 rounded-full absolute left-2 md:left-1/2 transform md:-translate-x-2 z-10"></div>
+                        <div class="ml-12 md:ml-0 md:w-5/12 md:pl-8">
+                            <div class="glass-card p-6 rounded-xl glow-on-hover">
+                                <h3 class="text-2xl font-semibold text-primary-500 mb-2">Flutter Developer</h3>
+                                <h4 class="text-lg font-medium text-dark-200 mb-2">BlueAccel Softwares</h4>
+                                <p class="text-dark-300 text-sm mb-4">Jun 2020 – Mar 2021 | Hyderabad, India</p>
+                                <ul class="text-dark-200 space-y-2 text-sm leading-relaxed">
+                                    <li>• Built productivity app for blog/video learners using Flutter and Firebase</li>
+                                    <li>• Created offline support with local caching and sync services</li>
+                                    <li>• Designed UI with Material Design supporting dark/light themes</li>
+                                    <li>• Implemented Firebase Authentication with OTP and social login</li>
+                                    <li>• Successfully published application on Play Store</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ExperienceSection -->
+
+    <!-- Projects Showcase -->
+    <!-- @COMPONENT: ProjectsSection [portfolio of mobile apps built] -->
+    <section id="projects" class="py-20 px-4 bg-dark-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Featured <span class="text-primary-500">Projects</span></h2>
+                <p class="text-xl text-dark-300">Mobile applications I've built and led</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- @MAP: projects.map(project => ( -->
+                <!-- Project 1: Educational Platform -->
+                <div class="glass-card rounded-xl overflow-hidden glow-on-hover" data-mock="true">
+                    <!-- Educational collaboration platform interface -->
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300" 
+                         alt="Educational collaboration platform with teacher-student interaction interface" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-primary-500">Educational Collaboration Platform</h3>
+                        <p class="text-dark-300 mb-4 text-sm">
+                            Cross-platform educational app supporting Android, iOS, Windows, and IFP devices with real-time session sync.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-primary-500/20 text-primary-500 px-2 py-1 rounded text-xs">Flutter</span>
+                            <span class="bg-emerald-500/20 text-emerald-500 px-2 py-1 rounded text-xs">BLoC</span>
+                            <span class="bg-purple-500/20 text-purple-500 px-2 py-1 rounded text-xs">Firebase</span>
+                            <span class="bg-primary-500/20 text-primary-500 px-2 py-1 rounded text-xs">Canvas</span>
+                        </div>
+                        <div class="text-dark-300 text-sm">
+                            <p>• Multi-platform compatibility</p>
+                            <p>• Canvas JSON import/export</p>
+                            <p>• Memory optimization with isolates</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Music Streaming App -->
+                <div class="glass-card rounded-xl overflow-hidden glow-on-hover" data-mock="true">
+                    <!-- Music streaming app interface with player controls -->
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300" 
+                         alt="Music streaming app interface with playlist and player controls" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-emerald-500">Music Streaming Application</h3>
+                        <p class="text-dark-300 mb-4 text-sm">
+                            Full-stack music streaming platform serving 50K+ users with 10K+ tracks and advanced playback features.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-emerald-500/20 text-emerald-500 px-2 py-1 rounded text-xs">Flutter</span>
+                            <span class="bg-purple-500/20 text-purple-500 px-2 py-1 rounded text-xs">Provider</span>
+                            <span class="bg-primary-500/20 text-primary-500 px-2 py-1 rounded text-xs">Firebase</span>
+                        </div>
+                        <div class="text-dark-300 text-sm">
+                            <p>• 50K+ active users</p>
+                            <p>• 10K+ music tracks</p>
+                            <p>• Clean architecture implementation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Medical App -->
+                <div class="glass-card rounded-xl overflow-hidden glow-on-hover" data-mock="true">
+                    <!-- Medical appointment booking app interface -->
+                    <img src="https://pixabay.com/get/g158fc9618fcfc8fd61bd1782e31393b662f283ed7ccf1f6b1ac41afb412561c3a99a442d698b89e769c7c285fe4318899a77538efbb2d1498344cad495f4e403_1280.jpg" 
+                         alt="Medical appointment booking app interface with doctor consultation features" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-purple-500">Medical Consultation App</h3>
+                        <p class="text-dark-300 mb-4 text-sm">
+                            Healthcare platform enabling appointment booking, doctor consultations, and patient management.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-purple-500/20 text-purple-500 px-2 py-1 rounded text-xs">Flutter</span>
+                            <span class="bg-emerald-500/20 text-emerald-500 px-2 py-1 rounded text-xs">Provider</span>
+                            <span class="bg-primary-500/20 text-primary-500 px-2 py-1 rounded text-xs">Firebase</span>
+                        </div>
+                        <div class="text-dark-300 text-sm">
+                            <p>• Appointment booking system</p>
+                            <p>• Doctor consultation features</p>
+                            <p>• Responsive cross-platform design</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: E-commerce App -->
+                <div class="glass-card rounded-xl overflow-hidden glow-on-hover" data-mock="true">
+                    <!-- E-commerce app with shopping features -->
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300" 
+                         alt="E-commerce mobile app with product catalog and shopping cart" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-primary-500">E-commerce B2B/B2C Platform</h3>
+                        <p class="text-dark-300 mb-4 text-sm">
+                            Comprehensive e-commerce solution with online payments, order tracking, and return management.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-primary-500/20 text-primary-500 px-2 py-1 rounded text-xs">Flutter</span>
+                            <span class="bg-emerald-500/20 text-emerald-500 px-2 py-1 rounded text-xs">Razorpay</span>
+                            <span class="bg-purple-500/20 text-purple-500 px-2 py-1 rounded text-xs">FCM</span>
+                        </div>
+                        <div class="text-dark-300 text-sm">
+                            <p>• Online payment integration</p>
+                            <p>• Order tracking system</p>
+                            <p>• Push notifications via FCM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: University App -->
+                <div class="glass-card rounded-xl overflow-hidden glow-on-hover" data-mock="true">
+                    <!-- University student management app interface -->
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300" 
+                         alt="University student management app with timetable and assignment features" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-emerald-500">University Student Portal</h3>
+                        <p class="text-dark-300 mb-4 text-sm">
+                            Student management app featuring timetable, announcements, assignments, and attendance tracking.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-emerald-500/20 text-emerald-500 px-2 py-1 rounded text-xs">Flutter</span>
+                            <span class="bg-purple-500/20 text-purple-500 px-2 py-1 rounded text-xs">Provider</span>
+                            <span class="bg-primary-500/20 text-primary-500 px-2 py-1 rounded text-xs">Firebase</span>
+                        </div>
+                        <div class="text-dark-300 text-sm">
+                            <p>• Timetable management</p>
+                            <p>• Assignment tracking</p>
+                            <p>• Attendance monitoring</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Productivity App -->
+                <div class="glass-card rounded-xl overflow-hidden glow-on-hover" data-mock="true">
+                    <!-- Productivity app with learning features -->
+                    <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300" 
+                         alt="Productivity app interface for blog and video learning" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 text-purple-500">Learning Productivity App</h3>
+                        <p class="text-dark-300 mb-4 text-sm">
+                            Productivity platform for blog and video learners with offline support and dark/light themes.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-purple-500/20 text-purple-500 px-2 py-1 rounded text-xs">Flutter</span>
+                            <span class="bg-emerald-500/20 text-emerald-500 px-2 py-1 rounded text-xs">MobX</span>
+                            <span class="bg-primary-500/20 text-primary-500 px-2 py-1 rounded text-xs">Firebase Auth</span>
+                        </div>
+                        <div class="text-dark-300 text-sm">
+                            <p>• Offline content caching</p>
+                            <p>• Material Design themes</p>
+                            <p>• OTP and social login</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ProjectsSection -->
+
+    <!-- Skills Section -->
+    <!-- @COMPONENT: SkillsSection [technical proficiencies with progress indicators] -->
+    <section id="skills" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Technical <span class="text-primary-500">Skills</span></h2>
+                <p class="text-xl text-dark-300">Technologies and tools I work with</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Programming Languages -->
+                <div class="glass-card p-6 rounded-xl glow-on-hover">
+                    <h3 class="text-xl font-semibold mb-6 text-primary-500 flex items-center">
+                        <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                        </svg>
+                        Programming Languages
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-dark-200 font-medium">Dart</span>
+                                <span class="text-dark-300 text-sm">95%</span>
+                            </div>
+                            <div class="bg-dark-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-primary-500 to-primary-600 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-dark-200 font-medium">Java</span>
+                                <span class="text-dark-300 text-sm">85%</span>
+                            </div>
+                            <div class="bg-dark-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-emerald-500 to-emerald-600 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-dark-200 font-medium">Python</span>
+                                <span class="text-dark-300 text-sm">80%</span>
+                            </div>
+                            <div class="bg-dark-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-purple-500 to-purple-600 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-dark-200 font-medium">JavaScript</span>
+                                <span class="text-dark-300 text-sm">75%</span>
+                            </div>
+                            <div class="bg-dark-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-primary-500 to-emerald-500 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frameworks & Tools -->
+                <div class="glass-card p-6 rounded-xl glow-on-hover">
+                    <h3 class="text-xl font-semibold mb-6 text-emerald-500 flex items-center">
+                        <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                        </svg>
+                        Frameworks & Tools
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-dark-200 font-medium">Flutter</span>
+                                <span class="text-dark-300 text-sm">95%</span>
+                            </div>
+                            <div class="bg-dark-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-primary-500 to-primary-600 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-dark-200 font-medium">Firebase</span>
+                                <span class="text-dark-300 text-sm">90%</span>
+                            </div>
+                            <div class="bg-dark-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-emerald-500 to-emerald-600 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-dark-200 font-medium">GitHub Actions</span>
+                                <span class="text-dark-300 text-sm">85%</span>
+                            </div>
+                            <div class="bg-dark-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-purple-500 to-purple-600 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-dark-200 font-medium">VS Code</span>
+                                <span class="text-dark-300 text-sm">95%</span>
+                            </div>
+                            <div class="bg-dark-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-primary-500 to-emerald-500 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- State Management -->
+                <div class="glass-card p-6 rounded-xl glow-on-hover">
+                    <h3 class="text-xl font-semibold mb-6 text-purple-500 flex items-center">
+                        <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        State Management
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-dark-200 font-medium">BLoC</span>
+                                <span class="text-dark-300 text-sm">90%</span>
+                            </div>
+                            <div class="bg-dark-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-purple-500 to-purple-600 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-dark-200 font-medium">Provider</span>
+                                <span class="text-dark-300 text-sm">95%</span>
+                            </div>
+                            <div class="bg-dark-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-primary-500 to-primary-600 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-dark-200 font-medium">MobX</span>
+                                <span class="text-dark-300 text-sm">80%</span>
+                            </div>
+                            <div class="bg-dark-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-emerald-500 to-emerald-600 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-dark-200 font-medium">Firebase Analytics</span>
+                                <span class="text-dark-300 text-sm">85%</span>
+                            </div>
+                            <div class="bg-dark-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-primary-500 to-emerald-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievements Stats -->
+            <div class="grid md:grid-cols-4 gap-6 mt-16">
+                <div class="text-center glass-card p-6 rounded-xl glow-on-hover">
+                    <div class="text-3xl font-bold text-primary-500 mb-2" data-bind="experience.years">5+</div>
+                    <div class="text-dark-300">Years Experience</div>
+                </div>
+                <div class="text-center glass-card p-6 rounded-xl glow-on-hover">
+                    <div class="text-3xl font-bold text-emerald-500 mb-2" data-bind="users.total">50K+</div>
+                    <div class="text-dark-300">App Users</div>
+                </div>
+                <div class="text-center glass-card p-6 rounded-xl glow-on-hover">
+                    <div class="text-3xl font-bold text-purple-500 mb-2" data-bind="improvement.percentage">20%</div>
+                    <div class="text-dark-300">Adoption Improvement</div>
+                </div>
+                <div class="text-center glass-card p-6 rounded-xl glow-on-hover">
+                    <div class="text-3xl font-bold text-primary-500 mb-2" data-bind="projects.completed">15+</div>
+                    <div class="text-dark-300">Projects Completed</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: SkillsSection -->
+
+    <!-- Contact Section -->
+    <!-- @COMPONENT: ContactSection [contact form and information] -->
+    <section id="contact" class="py-20 px-4 bg-dark-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Get In <span class="text-primary-500">Touch</span></h2>
+                <p class="text-xl text-dark-300">Let's discuss your next mobile development project</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6 text-primary-500">Let's Connect</h3>
+                        <p class="text-dark-200 leading-relaxed mb-8">
+                            I'm always interested in new opportunities and collaborations. Whether you have a project in mind 
+                            or just want to connect, feel free to reach out!
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center glass-card p-4 rounded-lg glow-on-hover">
+                            <svg class="w-6 h-6 text-primary-500 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-medium text-dark-100">Phone</h4>
+                                <p class="text-dark-300">+91-7976208349</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center glass-card p-4 rounded-lg glow-on-hover">
+                            <svg class="w-6 h-6 text-emerald-500 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-medium text-dark-100">Email</h4>
+                                <p class="text-dark-300">namanjain300@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center glass-card p-4 rounded-lg glow-on-hover">
+                            <svg class="w-6 h-6 text-purple-500 mr-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                            <div>
+                                <h4 class="font-medium text-dark-100">LinkedIn</h4>
+                                <a href="https://www.linkedin.com/in/namanjain300" target="_blank" class="text-primary-500 hover:text-primary-400 transition-colors">linkedin.com/in/namanjain300</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Download Resume Button -->
+                    <div class="pt-6">
+                        <button data-event="click:downloadResume" class="w-full bg-gradient-to-r from-primary-500 to-purple-500 text-white px-8 py-4 rounded-lg font-semibold hover:from-primary-600 hover:to-purple-600 transition-all duration-300 glow-on-hover">
+                            <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            Download Resume
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="glass-card p-8 rounded-xl">
+                    <form data-event="submit:handleContactForm">
+                        <!-- @FUNCTIONALITY: This form should validate input and send email via backend service -->
+                        <div class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-dark-200 mb-2">Name</label>
+                                <input type="text" id="name" name="name" required 
+                                       class="w-full bg-dark-700 border border-dark-600 rounded-lg px-4 py-3 text-dark-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                                       placeholder="Your full name">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-dark-200 mb-2">Email</label>
+                                <input type="email" id="email" name="email" required
+                                       class="w-full bg-dark-700 border border-dark-600 rounded-lg px-4 py-3 text-dark-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                                       placeholder="your.email@example.com">
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-dark-200 mb-2">Subject</label>
+                                <input type="text" id="subject" name="subject" required
+                                       class="w-full bg-dark-700 border border-dark-600 rounded-lg px-4 py-3 text-dark-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                                       placeholder="Project discussion">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-dark-200 mb-2">Message</label>
+                                <textarea id="message" name="message" rows="4" required
+                                          class="w-full bg-dark-700 border border-dark-600 rounded-lg px-4 py-3 text-dark-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 resize-none"
+                                          placeholder="Tell me about your project..."></textarea>
+                            </div>
+                            
+                            <button type="submit" 
+                                    class="w-full bg-gradient-to-r from-primary-500 to-emerald-500 text-white px-8 py-4 rounded-lg font-semibold hover:from-primary-600 hover:to-emerald-600 transition-all duration-300 glow-on-hover">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ContactSection -->
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 py-8 px-4 border-t border-dark-700">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-dark-300">
+                © 2024 Naman Jain. Built with passion for mobile development.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            // TODO: Implement smooth scrolling, form validation, and resume download functionality
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Simple fade-in animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.glass-card').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Contact form handling
+            const contactForm = document.querySelector('form[data-event="submit:handleContactForm"]');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // TODO: Implement actual form submission logic
+                    alert('Thank you for your message! I will get back to you soon.');
+                });
+            }
+            
+            // Resume download functionality
+            document.querySelectorAll('button[data-event="click:downloadResume"]').forEach(button => {
+                button.addEventListener('click', function() {
+                    // TODO: Implement actual resume download
+                    alert('Resume download functionality to be implemented');
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
