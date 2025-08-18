@@ -51,13 +51,13 @@ export default {
           "4": "var(--chart-4)",
           "5": "var(--chart-5)",
         },
-        // Custom dark purple gradient theme colors
-        'dark-primary': '#1a0d26',
-        'dark-secondary': '#2d1b3d',
-        'dark-card': '#4a2c5a',
-        'dark-accent': '#6b4a80',
-        'purple-bright': '#c64aff',
-        'purple-electric': '#a855f7',
+        // Custom dark blue gradient theme colors
+        'dark-primary': '#0f1421',
+        'dark-secondary': '#1a202e',
+        'dark-card': '#2d3748',
+        'dark-accent': '#4a5568',
+        'blue-bright': '#4a74f6',
+        'blue-electric': '#3b82f6',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
@@ -72,8 +72,8 @@ export default {
       },
       keyframes: {
         glow: {
-          'from': { 'box-shadow': '0 0 10px #c64aff, 0 0 20px #c64aff, 0 0 30px #c64aff' },
-          'to': { 'box-shadow': '0 0 20px #c64aff, 0 0 30px #c64aff, 0 0 40px #c64aff' }
+          'from': { 'box-shadow': '0 0 10px #4a74f6, 0 0 20px #4a74f6, 0 0 30px #4a74f6' },
+          'to': { 'box-shadow': '0 0 20px #4a74f6, 0 0 30px #4a74f6, 0 0 40px #4a74f6' }
         },
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },

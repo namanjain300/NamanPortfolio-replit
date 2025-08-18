@@ -62,18 +62,18 @@ const Hero = () => {
             <img 
               src={profileImage} 
               alt="Naman Jain - Senior Flutter Developer"
-              className="w-full h-full rounded-full object-cover border-4 border-purple-bright shadow-2xl hover:shadow-purple-bright/50 transition-all duration-300"
+              className="w-full h-full rounded-full object-cover border-4 border-blue-bright shadow-2xl hover:shadow-blue-bright/50 transition-all duration-300"
               data-testid="profile-image"
             />
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-purple-bright to-purple-electric bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-bright to-blue-electric bg-clip-text text-transparent">
             {resumeData.personal.name}
           </h1>
           
           <h2 className="text-xl md:text-2xl text-slate-300 mb-6 font-light">
             Senior Flutter Developer with{" "}
-            <span className="text-purple-bright font-semibold">
+            <span className="text-blue-bright font-semibold">
               {resumeData.personal.experience}
             </span>{" "}
             of experience
@@ -87,7 +87,7 @@ const Hero = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
           <Button
             onClick={handleDownloadResume}
-            className="bg-gradient-to-r from-purple-bright to-purple-electric hover:from-purple-electric hover:to-purple-bright text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover-glow"
+            className="bg-gradient-to-r from-blue-bright to-blue-electric hover:from-blue-electric hover:to-blue-bright text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover-glow"
             data-testid="download-resume-button"
           >
             <Download className="w-4 h-4 mr-2" />
@@ -97,7 +97,7 @@ const Hero = () => {
           <Button
             variant="outline"
             onClick={() => scrollToSection("contact")}
-            className="border-cyan-bright text-cyan-bright hover:bg-cyan-bright hover:text-dark-primary font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105"
+            className="border-blue-bright text-blue-bright hover:bg-blue-bright hover:text-dark-primary font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105"
             data-testid="contact-button"
           >
             Get In Touch
@@ -113,7 +113,7 @@ const Hero = () => {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 hover:text-cyan-bright transition-colors duration-300 text-2xl"
+                className="text-slate-400 hover:text-blue-bright transition-colors duration-300 text-2xl"
                 data-testid={`social-link-${social.label.toLowerCase()}`}
               >
                 <Icon className="h-6 w-6" />

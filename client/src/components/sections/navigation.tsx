@@ -46,7 +46,7 @@ const Navigation = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="text-xl font-bold text-cyan-bright">
+          <div className="text-xl font-bold text-blue-bright">
             Naman Jain
           </div>
           
@@ -56,7 +56,7 @@ const Navigation = () => {
               <button
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
-                className="text-slate-200 hover:text-cyan-bright transition-colors duration-300 font-medium"
+                className="text-slate-200 hover:text-blue-bright transition-colors duration-300 font-medium"
                 data-testid={`nav-link-${item.href}`}
               >
                 {item.label}
@@ -66,7 +66,7 @@ const Navigation = () => {
           
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-slate-200 hover:text-cyan-bright"
+            className="md:hidden text-slate-200 hover:text-blue-bright"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             data-testid="mobile-menu-toggle"
           >
@@ -83,7 +83,7 @@ const Navigation = () => {
               <button
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
-                className="block text-slate-200 hover:text-cyan-bright py-2 font-medium w-full text-left"
+                className="block text-slate-200 hover:text-blue-bright py-2 font-medium w-full text-left"
                 data-testid={`mobile-nav-link-${item.href}`}
               >
                 {item.label}
