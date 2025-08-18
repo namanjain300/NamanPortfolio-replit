@@ -14,6 +14,7 @@ import {
   Zap
 } from "lucide-react";
 import { resumeData } from "@/data/resume-data";
+import profileImage from "@assets/IMG-20180318-WA0003-EDIT_1755492662218.jpg";
 
 const About = () => {
   const skillIcons = {

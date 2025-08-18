@@ -1,11 +1,12 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Download, Mail } from "lucide-react";
-import { Smartphone, Linkedin, Github } from "lucide-react";
+import { Linkedin, Github } from "lucide-react";
 import { resumeData } from "@/data/resume-data";
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import profileImage from "@assets/IMG-20180318-WA0003-EDIT_1755492662218.jpg";
 
 const Hero = () => {
   const { scrollToSection } = useSmoothScroll();
@@ -57,8 +58,13 @@ const Hero = () => {
     >
       <div className="max-w-4xl mx-auto text-center animate-fadeInUp">
         <div className="mb-8">
-          <div className="w-32 h-32 bg-gradient-to-r from-cyan-bright to-blue-electric rounded-full mx-auto mb-6 flex items-center justify-center animate-float">
-            <Smartphone className="h-16 w-16 text-white" />
+          <div className="w-32 h-32 mx-auto mb-6 animate-float">
+            <img 
+              src={profileImage} 
+              alt="Naman Jain - Senior Flutter Developer"
+              className="w-full h-full rounded-full object-cover border-4 border-cyan-bright shadow-2xl hover:shadow-cyan-bright/50 transition-all duration-300"
+              data-testid="profile-image"
+            />
           </div>
           
           <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-bright to-blue-electric bg-clip-text text-transparent">
