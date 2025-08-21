@@ -10,6 +10,11 @@ const firebaseConfig = {
 // Check if required environment variables are set
 if (!import.meta.env.VITE_FIREBASE_API_KEY || !import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || !import.meta.env.VITE_FIREBASE_PROJECT_ID) {
     console.warn("Firebase environment variables not set. Using fallback values.");
+} else {
+    console.log("✅ Firebase config loaded successfully:", {
+        projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+        authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN
+    });
 }
 
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);

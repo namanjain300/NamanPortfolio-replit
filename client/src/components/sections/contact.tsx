@@ -51,21 +51,34 @@ const Contact = () => {
     const mailto = `mailto:${resumeData.personal.email}?subject=${encodeURIComponent(subjectLabel)}&body=${encodeURIComponent(data.message)}`;
     window.location.href = mailto;
 
+    // Debug: Log Firebase configuration
+    console.log("Firebase config check:", {
+      apiKey: import.meta.env.VITE_FIREBASE_API_KEY ? "Set" : "Missing",
+      authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN ? "Set" : "Missing",
+      projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID ? "Set" : "Missing"
+    });
+
     // Save to Firestore in the background (non-blocking)
     try {
+      console.log("Attempting to save to Firestore...");
       addDoc(collection(db, "contacts"), {
         name: data.name,
         email: data.email,
         subject: subjectLabel,
         message: data.message,
         createdAt: serverTimestamp()
+      }).then(() => {
+        console.log("✅ Successfully saved to Firestore!");
       }).catch(error => {
-        console.error("Firebase error:", error);
-        // Silent fail - doesn't affect user experience
+        console.error("❌ Firestore error:", error);
+        console.error("Error details:", {
+          code: error.code,
+          message: error.message,
+          details: error.details
+        });
       });
     } catch (error) {
-      console.error("Firebase error:", error);
-      // Silent fail - doesn't affect user experience
+      console.error("❌ Firestore setup error:", error);
     }
   };
 
