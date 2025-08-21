@@ -7,14 +7,12 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
 import { z } from "zod";
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
+import {
+  Mail,
+  Phone,
+  MapPin,
   Send,
-  CheckCircle,
   Smartphone,
   Users,
   Zap,
@@ -23,21 +21,17 @@ import {
 } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa";
 import { resumeData } from "@/data/resume-data";
-import { apiRequest } from "@/lib/queryClient";
-import { useToast } from "@/hooks/use-toast";
 
 const contactFormSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  subject: z.string().min(1, "Please select a subject"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
+  name: z.string().min(1, "Name is required"),
+  email: z.string().min(1, "Email is required"),
+  subject: z.string().min(1, "Subject is required"),
+  message: z.string().min(1, "Message is required"),
 });
 
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const Contact = () => {
-  const { toast } = useToast();
-  
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -48,31 +42,12 @@ const Contact = () => {
     },
   });
 
-  const contactMutation = useMutation({
-    mutationFn: async (data: ContactFormData) => {
-      const response = await apiRequest('POST', '/api/contact', data);
-      return response.json();
-    },
-    onSuccess: (data) => {
-      if (data.success) {
-        toast({
-          title: "Message Sent!",
-          description: "Thank you for your message. I'll get back to you soon.",
-        });
-        form.reset();
-      }
-    },
-    onError: () => {
-      toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
-        variant: "destructive",
-      });
-    },
-  });
-
   const onSubmit = (data: ContactFormData) => {
-    contactMutation.mutate(data);
+    const subjectLabel = subjectOptions.find((option) => option.value === data.subject)?.label || data.subject;
+
+    // Open mail client with subject and message
+    const mailto = `mailto:${resumeData.personal.email}?subject=${encodeURIComponent(subjectLabel)}&body=${encodeURIComponent(data.message)}`;
+    window.location.href = mailto;
   };
 
   const contactInfo = [
@@ -129,7 +104,7 @@ const Contact = () => {
             Ready to discuss your next mobile app project? Let's connect and explore how I can help bring your ideas to life.
           </p>
         </div>
-        
+
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
@@ -138,7 +113,7 @@ const Contact = () => {
                 <h3 className="text-2xl font-semibold mb-6 text-cyan-bright">
                   Let's Connect
                 </h3>
-                
+
                 <div className="space-y-6">
                   {contactInfo.map((info) => {
                     const Icon = info.icon;
@@ -172,7 +147,7 @@ const Contact = () => {
                     );
                   })}
                 </div>
-                
+
                 <div className="mt-8 pt-6 border-t border-dark-accent">
                   <h4 className="text-lg font-medium mb-4 text-slate-200">
                     Why Work With Me?
@@ -192,7 +167,7 @@ const Contact = () => {
               </CardContent>
             </Card>
           </div>
-          
+
           {/* Contact Form */}
           <Card className="bg-dark-card border-dark-accent hover-glow transition-all duration-300">
             <CardContent className="p-8">
@@ -211,7 +186,7 @@ const Contact = () => {
                     <p className="text-red-400 text-sm mt-1">{form.formState.errors.name.message}</p>
                   )}
                 </div>
-                
+
                 <div>
                   <Label htmlFor="email" className="text-slate-200">Email Address</Label>
                   <Input
@@ -226,14 +201,14 @@ const Contact = () => {
                     <p className="text-red-400 text-sm mt-1">{form.formState.errors.email.message}</p>
                   )}
                 </div>
-                
+
                 <div>
                   <Label htmlFor="subject" className="text-slate-200">Subject</Label>
-                  <Select 
+                  <Select
                     onValueChange={(value) => form.setValue("subject", value)}
                     value={form.watch("subject")}
                   >
-                    <SelectTrigger 
+                    <SelectTrigger
                       className="mt-2 bg-dark-accent border-dark-accent text-slate-200 focus:border-cyan-bright focus:ring-cyan-bright"
                       data-testid="contact-form-subject"
                     >
@@ -251,7 +226,7 @@ const Contact = () => {
                     <p className="text-red-400 text-sm mt-1">{form.formState.errors.subject.message}</p>
                   )}
                 </div>
-                
+
                 <div>
                   <Label htmlFor="message" className="text-slate-200">Message</Label>
                   <Textarea
@@ -266,24 +241,14 @@ const Contact = () => {
                     <p className="text-red-400 text-sm mt-1">{form.formState.errors.message.message}</p>
                   )}
                 </div>
-                
+
                 <Button
                   type="submit"
-                  disabled={contactMutation.isPending}
-                  className="w-full bg-gradient-to-r from-cyan-bright to-blue-electric hover:from-blue-electric hover:to-cyan-bright text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover-glow disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-gradient-to-r from-cyan-bright to-blue-electric hover:from-blue-electric hover:to-cyan-bright text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 hover-glow"
                   data-testid="contact-form-submit"
                 >
-                  {contactMutation.isPending ? (
-                    <>
-                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2" />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="h-4 w-4 mr-2" />
-                      Send Message
-                    </>
-                  )}
+                  <Send className="h-4 w-4 mr-2" />
+                  Send Message
                 </Button>
               </form>
             </CardContent>
