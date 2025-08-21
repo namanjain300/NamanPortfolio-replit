@@ -21,6 +21,8 @@ import {
 } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa";
 import { resumeData } from "@/data/resume-data";
+import { db } from "@/lib/firebase";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
 const contactFormSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -42,12 +44,29 @@ const Contact = () => {
     },
   });
 
-  const onSubmit = (data: ContactFormData) => {
+  const onSubmit = async (data: ContactFormData) => {
     const subjectLabel = subjectOptions.find((option) => option.value === data.subject)?.label || data.subject;
 
-    // Open mail client with subject and message
+    // Open mailto immediately (no delay)
     const mailto = `mailto:${resumeData.personal.email}?subject=${encodeURIComponent(subjectLabel)}&body=${encodeURIComponent(data.message)}`;
     window.location.href = mailto;
+
+    // Save to Firestore in the background (non-blocking)
+    try {
+      addDoc(collection(db, "contacts"), {
+        name: data.name,
+        email: data.email,
+        subject: subjectLabel,
+        message: data.message,
+        createdAt: serverTimestamp()
+      }).catch(error => {
+        console.error("Firebase error:", error);
+        // Silent fail - doesn't affect user experience
+      });
+    } catch (error) {
+      console.error("Firebase error:", error);
+      // Silent fail - doesn't affect user experience
+    }
   };
 
   const contactInfo = [
