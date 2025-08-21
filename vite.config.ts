@@ -4,9 +4,17 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 export default defineConfig(({ mode }) => {
-  // Load env file based on `mode` in the current working directory.
-  const env = loadEnv(mode, process.cwd(), '');
-
+  // Load env file from the client directory (where .env is located)
+  const env = loadEnv(mode, path.resolve(import.meta.dirname, "client"), '');
+  
+  console.log("Loading environment variables:", {
+    mode,
+    envPath: path.resolve(import.meta.dirname, "client"),
+    apiKey: env.VITE_FIREBASE_API_KEY ? "Found" : "Missing",
+    authDomain: env.VITE_FIREBASE_AUTH_DOMAIN ? "Found" : "Missing", 
+    projectId: env.VITE_FIREBASE_PROJECT_ID ? "Found" : "Missing"
+  });
+  
   return {
     plugins: [
       react(),
