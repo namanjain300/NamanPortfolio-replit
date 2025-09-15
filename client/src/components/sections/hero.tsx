@@ -4,12 +4,10 @@ import { Download, Mail } from "lucide-react";
 import { Linkedin, Github } from "lucide-react";
 import { resumeData } from "@/data/resume-data";
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
-import { useToast } from "@/hooks/use-toast";
 import profileImage from "@assets/IMG-20180318-WA0003-EDIT_1755492662218.jpg";
 
 const Hero = () => {
   const { scrollToSection } = useSmoothScroll();
-  const { toast } = useToast();
 
   const handleDownloadResume = () => {
     try {
@@ -22,27 +20,14 @@ const Hero = () => {
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-
-      toast({
-        title: "Resume Downloaded",
-        description: "Resume download has been initiated.",
-      });
     } catch (error) {
       console.error('Download error:', error);
 
       // Method 2: Fallback - open in new tab
       try {
         window.open('/Naman Jain Resume.pdf', '_blank');
-        toast({
-          title: "Resume Opened",
-          description: "Resume opened in new tab. You can save it manually.",
-        });
       } catch (fallbackError) {
-        toast({
-          title: "Download Failed",
-          description: "Unable to download resume. Please try again.",
-          variant: "destructive",
-        });
+        console.error('Resume fallback open failed:', fallbackError);
       }
     }
   };
