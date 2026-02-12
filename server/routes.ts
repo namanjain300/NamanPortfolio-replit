@@ -1,5 +1,6 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
+import path from "path";
 import { storage } from "./storage";
 import { insertContactMessageSchema } from "@shared/schema";
 
@@ -42,13 +43,44 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // Download resume endpoint
   app.get("/api/resume/download", (req, res) => {
-    // In a real app, you would serve the actual resume file
-    // For now, we'll just return a success response
-    res.json({ 
-      success: true, 
-      downloadUrl: "/assets/resume_naman_jain.pdf",
-      message: "Resume download initiated" 
-    });
+    try {
+      const resumePath = path.resolve(
+        import.meta.dirname,
+        "..",
+        "attached_assets",
+        "Naman Jain Resume.pdf",
+      );
+
+      res.setHeader("Content-Type", "application/pdf");
+      res.setHeader(
+        "Content-Disposition",
+        'attachment; filename="Naman_Jain_Resume.pdf"',
+      );
+
+      res.sendFile(resumePath, (err) => {
+        if (err) {
+          console.error("Error sending resume file:", err);
+          if (!res.headersSent) {
+            res
+              .status(500)
+              .json({
+                success: false,
+                message: "Failed to download resume. Please try again later.",
+              });
+          }
+        }
+      });
+    } catch (error) {
+      console.error("Resume download error:", error);
+      if (!res.headersSent) {
+        res
+          .status(500)
+          .json({
+            success: false,
+            message: "Failed to download resume. Please try again later.",
+          });
+      }
+    }
   });
 
   const httpServer = createServer(app);

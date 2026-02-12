@@ -11,23 +11,22 @@ const Hero = () => {
 
   const handleDownloadResume = () => {
     try {
-      // Method 1: Try direct download
-      const link = document.createElement('a');
-      link.href = '/Naman Jain Resume.pdf';
-      link.download = 'Naman_Jain_Resume.pdf';
+      // Trigger resume download via backend endpoint so it works in production
+      const link = document.createElement("a");
+      link.href = "/api/resume/download";
+      link.download = "Naman_Jain_Resume.pdf";
 
-      // Append to body, click, and remove
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
     } catch (error) {
-      console.error('Download error:', error);
+      console.error("Download error:", error);
 
-      // Method 2: Fallback - open in new tab
+      // Fallback: try opening in a new tab
       try {
-        window.open('/Naman Jain Resume.pdf', '_blank');
+        window.open("/api/resume/download", "_blank");
       } catch (fallbackError) {
-        console.error('Resume fallback open failed:', fallbackError);
+        console.error("Resume fallback open failed:", fallbackError);
       }
     }
   };
