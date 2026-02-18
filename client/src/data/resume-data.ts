@@ -21,11 +21,24 @@ export const resumeData = {
 
   experience: [
     {
+      id: "dark-bears",
+      company: "Dark Bears",
+      role: "Senior Mobile Developer",
+      location: "Jaipur, India",
+      period: "Nov 2025 – Present",
+      status: "current",
+      highlights: [
+        "Worked on an AI-driven sales training platform using LLMs with Retrieval-Augmented Generation (RAG) to simulate realistic customer objections and evaluate salesperson responses",
+        "Implemented real-time conversational flow where user inputs are converted to embeddings, matched via vector search, enriched with contextual data, and used to generate context-aware AI responses",
+        "Enabled voice-based AI interactions by processing streamed LLM outputs and generating natural speech using ElevenLabs Text-to-Speech, supporting low-latency, continuous simulations"
+      ]
+    },
+    {
       id: "practically",
       company: "Practically",
       role: "Senior Mobile Engineer",
       location: "Hyderabad, India",
-      period: "May 2023 – Jul 2025",
+      period: "May 2023 – Oct 2025",
       status: "previous",
       highlights: [
         "Developed educational collaboration platform for Android, iOS, Windows, and IFP devices",
