@@ -20,6 +20,7 @@ export default defineConfig(({ mode }) => {
       react(),
       runtimeErrorOverlay(),
     ],
+    publicDir: path.resolve(import.meta.dirname, "attached_assets"),
     resolve: {
       alias: {
         "@": path.resolve(import.meta.dirname, "client", "src"),

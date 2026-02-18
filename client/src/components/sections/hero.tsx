@@ -10,25 +10,13 @@ const Hero = () => {
   const { scrollToSection } = useSmoothScroll();
 
   const handleDownloadResume = () => {
-    try {
-      // Trigger resume download via backend endpoint so it works in production
-      const link = document.createElement("a");
-      link.href = "/api/resume/download";
-      link.download = "Naman_Jain_Resume.pdf";
-
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } catch (error) {
-      console.error("Download error:", error);
-
-      // Fallback: try opening in a new tab
-      try {
-        window.open("/api/resume/download", "_blank");
-      } catch (fallbackError) {
-        console.error("Resume fallback open failed:", fallbackError);
-      }
-    }
+    const link = document.createElement("a");
+    // Served as a static asset by Vite/Firebase Hosting
+    link.href = "/Naman%20Jain%20Resume.pdf";
+    link.download = "Naman_Jain_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const socialLinks = [
